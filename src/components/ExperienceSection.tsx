@@ -1,5 +1,5 @@
 
-import { Briefcase, Calendar } from "lucide-react";
+import { Briefcase, Calendar, Building, MapPin, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 interface ExperienceItem {
@@ -9,6 +9,7 @@ interface ExperienceItem {
   period: string;
   description: string[];
   tags: string[];
+  logoColor?: string;
 }
 
 const experiences: ExperienceItem[] = [
@@ -22,19 +23,8 @@ const experiences: ExperienceItem[] = [
       "Designed and deployed analytics-ready data models and ETL workflows; visualized insights through dynamic dashboards in Looker Studio to support data-driven decision-making.",
       "Provisioned and managed cloud infrastructure with Terraform, and deployed containerized services using Docker, improving reliability, consistency, and scalability."
     ],
-    tags: ["GCP", "Kestra", "dbt", "Kafka", "Terraform", "Docker", "ETL", "Looker Studio"]
-  },
-  {
-    title: "Graduate Assistant",
-    company: "Eastern Michigan University",
-    location: "Ypsilanti, Michigan",
-    period: "Aug 2024 – Apr 2025",
-    description: [
-      "Automated administrative workflows and academic scheduling using Python, SQL, and Google Apps Script, improving operational efficiency by ~50%.",
-      "Developed and maintained internal web applications and dashboards using Flask and front-end technologies, enhancing the usability of academic tools and improving access to information.",
-      "Developed automation scripts for scheduling and desk operations, reducing conflicts and overhead; trained a team in IT support and troubleshooting, ensuring smooth operations."
-    ],
-    tags: ["Python", "SQL", "Google Apps Script", "Flask", "Process Automation", "Web Development"]
+    tags: ["GCP", "Kestra", "dbt", "Kafka", "Terraform", "Docker", "ETL", "Looker Studio"],
+    logoColor: "#4285F4" // Google Cloud blue
   },
   {
     title: "Associate Consultant",
@@ -46,66 +36,85 @@ const experiences: ExperienceItem[] = [
       "Leveraged Microsoft Power Platform (Power Apps, Power Automate, Power BI) to automate internal processes, streamline employee onboarding, and create automated workflows, significantly reducing manual tasks and cycle times.",
       "Developed Azure Data Integration by connecting Power Platform tools to SQL databases, enabling seamless updates across apps and reports, while contributing to an Agile environment through active sprint participation and collaborative development."
     ],
-    tags: ["MySQL", "JDBC", "Java Swing", "JavaFX", "Power Platform", "Azure", "Agile"]
-  },
-  {
-    title: "Cloud Engineer Intern",
-    company: "AICTE AWS Academy Cloud Architecting",
-    location: "Hyderabad, Telangana",
-    period: "Sep 2021 – Dec 2021",
-    description: [
-      "Gaining hands-on experience with core services like EC2, S3, RDS, IAM, Lambda, and CloudFormation while designing and deploying reliable, secure cloud-based solutions and microservices.",
-      "Implemented Infrastructure as Code (IaC) using CloudFormation templates, explored DevOps practices, cost optimization, and monitoring with AWS CloudWatch."
-    ],
-    tags: ["AWS", "EC2", "S3", "RDS", "IAM", "Lambda", "CloudFormation", "IaC", "CloudWatch"]
+    tags: ["MySQL", "JDBC", "Java Swing", "JavaFX", "Power Platform", "Azure", "Agile"],
+    logoColor: "#0078D4" // Microsoft blue
   }
 ];
 
 const ExperienceSection = () => {
   return (
-    <section id="experience" className="py-20">
+    <section id="experience" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
-        <h2 className="section-header">Work Experience</h2>
+        <h2 className="section-header text-center mb-16">Work Experience</h2>
         
-        <div className="space-y-8 relative">
-          {/* Line connecting experiences */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-muted transform -translate-x-1/2"></div>
-          
+        <div className="space-y-12 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
-            <div key={index} className={`flex flex-col md:grid md:grid-cols-5 gap-6 md:gap-10 relative`}>
-              {/* Timeline dot */}
-              <div className="hidden md:block absolute left-1/2 top-8 w-4 h-4 rounded-full bg-primary transform -translate-x-1/2"></div>
-              
-              {/* Date and Company */}
-              <div className={`md:col-span-2 ${index % 2 === 0 ? 'md:text-right md:pr-10' : 'md:order-last md:pl-10'}`}>
-                <div className="flex items-center md:justify-end gap-2 text-sm mb-2">
-                  <Calendar size={16} className="text-primary" />
-                  <span>{exp.period}</span>
-                </div>
-                <h3 className="text-xl font-bold">{exp.company}</h3>
-                <p className="text-muted-foreground">{exp.location}</p>
-              </div>
-              
-              {/* Experience Details */}
-              <Card className={`md:col-span-3 card-hover ${index % 2 === 0 ? 'md:pl-10' : 'md:pr-10 md:order-first'}`}>
-                <CardContent className="p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Briefcase size={18} className="text-primary" />
+            <Card 
+              key={index} 
+              className="overflow-hidden border-l-4 hover:shadow-lg transition-all duration-300 card-hover"
+              style={{ borderLeftColor: exp.logoColor }}
+            >
+              <CardContent className="p-0">
+                <div className="p-6 sm:p-8">
+                  {/* Company and Period Header */}
+                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                    <div className="flex items-center gap-3">
+                      <div 
+                        className="p-2 rounded-full" 
+                        style={{ backgroundColor: `${exp.logoColor}20` }}
+                      >
+                        <Building size={24} style={{ color: exp.logoColor }} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold">{exp.company}</h3>
+                        <div className="flex items-center text-sm text-muted-foreground">
+                          <MapPin size={14} className="mr-1" />
+                          {exp.location}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="flex items-center mt-2 md:mt-0 gap-1 text-sm font-medium bg-muted/50 py-1 px-3 rounded-full">
+                      <Calendar size={14} className="text-primary mr-1" />
+                      {exp.period}
+                    </div>
+                  </div>
+                  
+                  {/* Job Title */}
+                  <div className="flex items-center gap-2 mb-3 pl-1 md:pl-12">
+                    <Briefcase size={16} className="text-primary" />
                     <h4 className="text-lg font-semibold">{exp.title}</h4>
                   </div>
-                  <ul className="list-disc pl-5 space-y-2 mb-4 text-sm">
-                    {exp.description.map((item, i) => (
-                      <li key={i}>{item}</li>
-                    ))}
-                  </ul>
-                  <div className="flex flex-wrap gap-2 pt-2">
+                  
+                  {/* Description */}
+                  <div className="pl-1 md:pl-12 mb-6">
+                    <ul className="space-y-3 text-sm">
+                      {exp.description.map((item, i) => (
+                        <li key={i} className="flex">
+                          <ChevronRight size={16} className="mt-1 mr-2 text-primary flex-shrink-0" />
+                          <p>{item}</p>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* Tags */}
+                  <div className="pl-1 md:pl-12 flex flex-wrap gap-2">
                     {exp.tags.map((tag, i) => (
-                      <span key={i} className="tech-tag">{tag}</span>
+                      <span 
+                        key={i} 
+                        className="text-xs font-medium py-1 px-2 rounded-full"
+                        style={{ 
+                          backgroundColor: `${exp.logoColor}15`, 
+                          color: exp.logoColor
+                        }}
+                      >
+                        {tag}
+                      </span>
                     ))}
                   </div>
-                </CardContent>
-              </Card>
-            </div>
+                </div>
+              </CardContent>
+            </Card>
           ))}
         </div>
       </div>
