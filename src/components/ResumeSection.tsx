@@ -2,7 +2,6 @@
 import { FileText, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import resumeImage from "public/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png";
 
 const ResumeSection = () => {
   return (
@@ -34,7 +33,7 @@ const ResumeSection = () => {
             <CardContent className="p-0">
               <div className="relative aspect-[3/4] w-full">
                 <img 
-                  src={resumeImage} 
+                  src="/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png" 
                   alt="Umadevi Thulluru's Resume" 
                   className="w-full h-full object-cover object-top"
                 />
