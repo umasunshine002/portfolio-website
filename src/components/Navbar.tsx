@@ -1,7 +1,13 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, FileText } from 'lucide-react';
+import { Menu, X, Github, Linkedin, FileText, Download, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,6 +35,19 @@ const Navbar = () => {
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png";
+    link.download = "Umadevi_Thulluru_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleView = () => {
+    window.open("/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png", "_blank");
+  };
 
   return (
     <nav 
@@ -74,11 +93,24 @@ const Navbar = () => {
             >
               <Github size={20} />
             </a>
-            <Button asChild size="sm" variant="outline" className="ml-2">
-              <a href="#resume">
-                <FileText size={16} className="mr-2" /> Resume
-              </a>
-            </Button>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button size="sm" variant="outline" className="ml-2">
+                  <FileText size={16} className="mr-2" /> Resume
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={handleView} className="cursor-pointer">
+                  <Eye size={16} className="mr-2" />
+                  <span>View</span>
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={handleDownload} className="cursor-pointer">
+                  <Download size={16} className="mr-2" />
+                  <span>Download</span>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
         </div>
 
@@ -125,11 +157,14 @@ const Navbar = () => {
               >
                 <Github size={20} />
               </a>
-              <Button asChild size="sm" variant="outline" className="ml-2">
-                <a href="#resume">
-                  <FileText size={16} className="mr-2" /> Resume
-                </a>
-              </Button>
+              <div className="flex space-x-2">
+                <Button size="sm" variant="outline" onClick={handleView}>
+                  <Eye size={16} className="mr-1" /> View Resume
+                </Button>
+                <Button size="sm" onClick={handleDownload}>
+                  <Download size={16} className="mr-1" /> Download
+                </Button>
+              </div>
             </div>
           </div>
         </div>

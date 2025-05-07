@@ -14,12 +14,12 @@ const HeroSection = () => {
               Umadevi Thulluru
             </h1>
             <h2 className="text-2xl md:text-3xl text-muted-foreground font-medium mb-8">
-              Data Engineer & Full Stack Developer
+              Computer Science Graduate & Tech Enthusiast
             </h2>
             <p className="text-lg mb-10 max-w-2xl mx-auto md:mx-0">
-              Creating robust data solutions and building powerful applications that
-              deliver real-world impact. Specialized in cloud technologies, data pipelines,
-              and full-stack development.
+              Passionate about building meaningful solutions through code. 
+              Currently exploring opportunities in data processing and web development
+              where I can contribute and grow my skills.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
               <Button size="lg" asChild>
