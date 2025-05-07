@@ -1,6 +1,7 @@
 
 import { User, Code, Award } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const AboutSection = () => {
   const skills = [
@@ -11,30 +12,50 @@ const AboutSection = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-background to-muted/30">
+    <section id="about" className="py-20 bg-gradient-to-b from-background to-muted/30 overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="section-header">About Me</h2>
+        <h2 className="section-header text-center md:text-left">About Me</h2>
         
-        <Card className="overflow-hidden border-none shadow-lg bg-gradient-to-br from-white to-muted/50">
-          <CardContent className="p-8">
-            <p className="text-lg leading-relaxed mb-8">
-              I'm a Computer Science graduate with a passion for solving problems through technology. 
-              During my studies and internships, I've gained experience with data systems and web development 
-              projects. I enjoy working with data pipelines, building applications, and learning new 
-              technologies. My goal is to continue growing as a developer and eventually contribute to 
-              projects that make a positive impact.
-            </p>
-
-            <div className="mt-10">
-              <h3 className="text-xl font-semibold mb-6 text-foreground/90">Technical Skills</h3>
-              <div className="flex flex-wrap gap-2">
-                {skills.map((skill, index) => (
-                  <span key={index} className="tech-tag">{skill}</span>
-                ))}
-              </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="md:col-span-1 flex justify-center">
+            <div className="rounded-full overflow-hidden w-64 h-64 border-4 border-primary/20 shadow-xl shadow-primary/10 relative transform transition-all duration-500 hover:scale-105">
+              <img 
+                src="/lovable-uploads/9a26e5a1-3506-488a-a363-6a6e2b94a51f.png" 
+                alt="Umadevi Thulluru" 
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-          </CardContent>
-        </Card>
+          </div>
+          
+          <div className="md:col-span-2">
+            <Card className="overflow-hidden border-none shadow-lg bg-gradient-to-br from-card to-muted/50 h-full">
+              <CardContent className="p-8">
+                <p className="text-lg leading-relaxed mb-8">
+                  I'm a Computer Science graduate with a passion for solving problems through technology. 
+                  During my studies and internships, I've gained experience with data systems and web development 
+                  projects. I enjoy working with data pipelines, building applications, and learning new 
+                  technologies. My goal is to continue growing as a developer and eventually contribute to 
+                  projects that make a positive impact.
+                </p>
+
+                <div className="mt-10">
+                  <h3 className="text-xl font-semibold mb-6 text-foreground/90">Technical Skills</h3>
+                  <div className="flex flex-wrap gap-2">
+                    {skills.map((skill, index) => (
+                      <span 
+                        key={index} 
+                        className="tech-tag transform transition-all hover:scale-110 hover:shadow-md hover:bg-primary/20"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
       </div>
     </section>
   );
