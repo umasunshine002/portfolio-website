@@ -34,7 +34,7 @@ const experiences: ExperienceItem[] = [
     description: [
       "Engineered a Full-Stack Employee Management System using MySQL and JDBC, enhancing data access and management, and designed a responsive UI with Java Swing and JavaFX to improve user experience and reduce support queries.",
       "Leveraged Microsoft Power Platform (Power Apps, Power Automate, Power BI) to automate internal processes, streamline employee onboarding, and create automated workflows, significantly reducing manual tasks and cycle times.",
-      "Developed Azure Data Integration by connecting Power Platform tools to SQL databases, enabling seamless updates across apps and reports, while contributing to an Agile environment through active sprint participation and collaborative development."
+      "Developed Real-time Data Integration by connecting Power Platform tools to SQL databases, enabling seamless updates across apps and reports, while contributing to an Agile environment through active sprint participation and collaborative development."
     ],
     tags: ["MySQL", "JDBC", "Java Swing", "JavaFX", "Power Platform", "Azure", "Agile"],
     logoColor: "#0078D4" // Microsoft blue
