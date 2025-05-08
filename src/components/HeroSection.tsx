@@ -62,10 +62,6 @@ const HeroSection = () => {
         <div className="absolute top-20 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-1"></div>
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-2"></div>
         <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-secondary/10 rounded-full blur-2xl opacity-0 transition-all duration-1500 bg-element-3"></div>
-        
-        <div className="animate-shooting-star absolute"></div>
-        <div className="animate-shooting-star absolute" style={{animationDelay: '2s'}}></div>
-        <div className="animate-shooting-star absolute" style={{animationDelay: '5s'}}></div>
       </div>
       
       <div className="container mx-auto px-4 z-10 mt-16">
