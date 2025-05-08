@@ -108,6 +108,46 @@ export default {
 						transform: "translateY(0)",
 					},
 				},
+				"float": {
+					"0%, 100%": {
+						transform: "translateY(0)",
+					},
+					"50%": {
+						transform: "translateY(-10px)",
+					},
+				},
+				"pulse-slight": {
+					"0%, 100%": {
+						transform: "scale(1)",
+						opacity: "1",
+					},
+					"50%": {
+						transform: "scale(1.03)",
+						opacity: "0.9",
+					},
+				},
+				"spin-slow": {
+					"0%": { transform: "rotate(0deg)" },
+					"100%": { transform: "rotate(360deg)" },
+				},
+				"bounce-slight": {
+					"0%, 100%": {
+						transform: "translateY(0)",
+						animationTimingFunction: "cubic-bezier(0.8, 0, 1, 1)",
+					},
+					"50%": {
+						transform: "translateY(-10px)",
+						animationTimingFunction: "cubic-bezier(0, 0, 0.2, 1)",
+					},
+				},
+				"shimmer": {
+					"0%": {
+						backgroundPosition: "-200% 0",
+					},
+					"100%": {
+						backgroundPosition: "200% 0",
+					},
+				},
 			},
 			animation: {
 				"accordion-down": "accordion-down 0.2s ease-out",
@@ -115,6 +155,11 @@ export default {
 				"gradient-x": "gradient-x 15s ease infinite",
 				"fade-in": "fade-in 0.5s ease-out",
 				"fade-up": "fade-up 0.5s ease-out",
+				"float": "float 4s ease-in-out infinite",
+				"pulse-slight": "pulse-slight 3s ease-in-out infinite",
+				"spin-slow": "spin-slow 6s linear infinite",
+				"bounce-slight": "bounce-slight 2s infinite",
+				"shimmer": "shimmer 2s linear infinite",
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

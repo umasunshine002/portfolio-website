@@ -54,12 +54,15 @@ const Navbar = () => {
 
   return (
     <nav 
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
+      className={`fixed w-full top-0 z-50 transition-all duration-500 ${
         scrolled ? 'bg-background/80 backdrop-blur-md shadow-sm py-2' : 'py-4'
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" className="text-xl md:text-2xl font-bold gradient-text relative overflow-hidden">
+        <a 
+          href="#" 
+          className="text-xl md:text-2xl font-bold gradient-text relative overflow-hidden group"
+        >
           Umadevi<span className="text-foreground">.dev</span>
           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
@@ -67,11 +70,12 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
           <div className="flex items-center space-x-6">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium hover:text-primary transition-colors relative group"
+                className="text-sm font-medium hover:text-primary transition-all duration-300 relative group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
@@ -84,69 +88,100 @@ const Navbar = () => {
               href="https://www.linkedin.com/in/umadeviThulluru"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <Linkedin size={20} className="hover:animate-spin-slow" />
             </a>
             <a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
               aria-label="GitHub"
             >
-              <Github size={20} />
+              <Github size={20} className="hover:animate-spin-slow" />
             </a>
             
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <Button size="sm" variant="outline" className="ml-2">
-                  <FileText size={16} className="mr-2" /> Resume
+                <Button size="sm" variant="outline" className="ml-2 group overflow-hidden relative">
+                  <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary/20 to-accent/20 group-hover:w-full transition-all duration-300"></span>
+                  <FileText size={16} className="mr-2 group-hover:rotate-12 transition-transform duration-300" />
+                  <span className="relative z-10">Resume</span>
                 </Button>
               </DropdownMenuTrigger>
-              <DropdownMenuContent align="end">
-                <DropdownMenuItem onClick={handleView} className="cursor-pointer">
-                  <Eye size={16} className="mr-2" />
+              <DropdownMenuContent align="end" className="animate-fade-in">
+                <DropdownMenuItem onClick={handleView} className="cursor-pointer group">
+                  <Eye size={16} className="mr-2 group-hover:scale-110 transition-transform duration-300" />
                   <span>View</span>
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={handleDownload} className="cursor-pointer">
-                  <Download size={16} className="mr-2" />
+                <DropdownMenuItem onClick={handleDownload} className="cursor-pointer group">
+                  <Download size={16} className="mr-2 group-hover:translate-y-1 transition-transform duration-300" />
                   <span>Download</span>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
             
-            <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme">
-              {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={toggleTheme} 
+              aria-label="Toggle theme"
+              className="relative overflow-hidden group"
+            >
+              <span className="absolute inset-0 w-full h-full bg-primary/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+              <span className="relative z-10">
+                {theme === 'light' ? 
+                  <Moon size={18} className="transition-transform duration-700 rotate-0 hover:rotate-[360deg]" /> : 
+                  <Sun size={18} className="transition-transform duration-700 rotate-0 hover:rotate-[360deg]" />
+                }
+              </span>
             </Button>
           </div>
         </div>
 
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label="Toggle theme">
-            {theme === 'light' ? <Moon size={18} /> : <Sun size={18} />}
+          <Button 
+            variant="ghost" 
+            size="icon" 
+            onClick={toggleTheme} 
+            aria-label="Toggle theme"
+            className="relative overflow-hidden group"
+          >
+            <span className="absolute inset-0 w-full h-full bg-primary/10 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300"></span>
+            <span className="relative z-10">
+              {theme === 'light' ? 
+                <Moon size={18} className="transition-transform duration-700 rotate-0 hover:rotate-[360deg]" /> : 
+                <Sun size={18} className="transition-transform duration-700 rotate-0 hover:rotate-[360deg]" />
+              }
+            </span>
           </Button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
+            className="transform transition-transform duration-300 hover:scale-110"
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {isMenuOpen ? 
+              <X size={24} className="animate-spin-slow" /> : 
+              <Menu size={24} className="hover:text-primary transition-colors" />
+            }
           </button>
         </div>
       </div>
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-background border-b border-border animate-fade-in">
+        <div className="md:hidden bg-background/90 backdrop-blur-lg border-b border-border animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="py-2 text-sm font-medium hover:text-primary transition-colors"
+                className="py-2 text-sm font-medium hover:text-primary transition-colors transform hover:translate-x-1 transition-transform duration-300"
                 onClick={() => setIsMenuOpen(false)}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {link.name}
               </a>
@@ -156,7 +191,7 @@ const Navbar = () => {
                 href="https://www.linkedin.com/in/umadeviThulluru"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
                 aria-label="LinkedIn"
               >
                 <Linkedin size={20} />
@@ -165,17 +200,17 @@ const Navbar = () => {
                 href="#"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-primary transition-colors"
+                className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
                 aria-label="GitHub"
               >
                 <Github size={20} />
               </a>
               <div className="flex space-x-2">
-                <Button size="sm" variant="outline" onClick={handleView}>
-                  <Eye size={16} className="mr-1" /> View Resume
+                <Button size="sm" variant="outline" onClick={handleView} className="group">
+                  <Eye size={16} className="mr-1 group-hover:scale-110 transition-transform duration-300" /> View Resume
                 </Button>
-                <Button size="sm" onClick={handleDownload}>
-                  <Download size={16} className="mr-1" /> Download
+                <Button size="sm" onClick={handleDownload} className="group">
+                  <Download size={16} className="mr-1 group-hover:translate-y-1 transition-transform duration-300" /> Download
                 </Button>
               </div>
             </div>

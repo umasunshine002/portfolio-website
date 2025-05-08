@@ -61,12 +61,12 @@ const AboutSection = () => {
           <div className="md:col-span-1 flex justify-center">
             <div 
               ref={imageRef} 
-              className="rounded-full overflow-hidden w-64 h-64 border-4 border-primary/20 shadow-xl shadow-primary/10 relative opacity-0 scale-90 rotate-6 transition-all duration-1000 ease-out"
+              className="rounded-full overflow-hidden w-64 h-64 border-4 border-primary/20 shadow-xl shadow-primary/10 relative opacity-0 scale-90 rotate-6 transition-all duration-1000 ease-out hover:rotate-3 hover:scale-105"
             >
               <img 
                 src="/lovable-uploads/9a26e5a1-3506-488a-a363-6a6e2b94a51f.png" 
                 alt="Umadevi Thulluru" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
             </div>
@@ -75,9 +75,9 @@ const AboutSection = () => {
           <div className="md:col-span-2">
             <div 
               ref={contentRef} 
-              className="overflow-hidden border-none shadow-lg bg-gradient-to-br from-card to-muted/50 h-full rounded-lg p-8 opacity-0 translate-y-10 transition-all duration-700 delay-300 ease-out"
+              className="overflow-hidden border-none shadow-lg bg-gradient-to-br from-card to-muted/50 h-full rounded-lg p-8 opacity-0 translate-y-10 transition-all duration-700 delay-300 ease-out hover:shadow-xl hover:shadow-primary/15 hover:-translate-y-1"
             >
-              <p className="text-lg leading-relaxed mb-8">
+              <p className="text-lg leading-relaxed mb-8 animate-pulse-subtle">
                 I'm a Computer Science graduate with a passion for solving problems through technology. 
                 During my studies and internships, I've gained experience with data systems and web development 
                 projects. I enjoy working with data pipelines, building applications, and learning new 
@@ -95,7 +95,11 @@ const AboutSection = () => {
                     <span 
                       key={index} 
                       className="tech-tag transform transition-all hover:scale-110 hover:shadow-md hover:bg-primary/20"
-                      style={{ animationDelay: `${index * 50}ms`, transitionDelay: `${index * 30}ms` }}
+                      style={{ 
+                        animationDelay: `${index * 50}ms`, 
+                        transitionDelay: `${index * 30}ms`,
+                        animation: `float ${2 + (index % 3)}s ease-in-out infinite` 
+                      }}
                     >
                       {skill}
                     </span>

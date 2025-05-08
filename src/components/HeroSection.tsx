@@ -19,11 +19,13 @@ const HeroSection = () => {
     // Background animation
     const bg1 = document.querySelector('.bg-element-1');
     const bg2 = document.querySelector('.bg-element-2');
+    const bg3 = document.querySelector('.bg-element-3');
     
-    if (bg1 && bg2) {
+    if (bg1 && bg2 && bg3) {
       setTimeout(() => {
         bg1.classList.add('opacity-30');
         bg2.classList.add('opacity-30');
+        bg3.classList.add('opacity-20');
       }, 300);
     }
     
@@ -38,6 +40,10 @@ const HeroSection = () => {
       
       if (bg2) {
         (bg2 as HTMLElement).style.transform = `translate(${-x * 30}px, ${-y * 30}px)`;
+      }
+      
+      if (bg3) {
+        (bg3 as HTMLElement).style.transform = `translate(${x * -15}px, ${y * 15}px) rotate(${x * 5}deg)`;
       }
     };
     
@@ -55,6 +61,11 @@ const HeroSection = () => {
         <div className="absolute inset-0 bg-hero-pattern opacity-0 transition-opacity duration-1000"></div>
         <div className="absolute top-20 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-1"></div>
         <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-2"></div>
+        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-secondary/10 rounded-full blur-2xl opacity-0 transition-all duration-1500 bg-element-3"></div>
+        
+        <div className="animate-shooting-star absolute"></div>
+        <div className="animate-shooting-star absolute" style={{animationDelay: '2s'}}></div>
+        <div className="animate-shooting-star absolute" style={{animationDelay: '5s'}}></div>
       </div>
       
       <div className="container mx-auto px-4 z-10 mt-16">
@@ -62,14 +73,14 @@ const HeroSection = () => {
           <div>
             <p 
               ref={el => textElements.current[0] = el} 
-              className="text-lg font-medium text-primary mb-4 opacity-0 -translate-y-10 transition-all duration-700"
+              className="text-lg font-medium text-primary mb-4 opacity-0 -translate-y-10 transition-all duration-700 animate-float"
             >
               Hello, I'm
             </p>
             
             <h1 
               ref={el => textElements.current[1] = el} 
-              className="text-5xl md:text-6xl font-bold mb-6 opacity-0 -translate-y-10 transition-all duration-700"
+              className="text-5xl md:text-6xl font-bold mb-6 opacity-0 -translate-y-10 transition-all duration-700 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-gradient-x"
             >
               Umadevi Thulluru
             </h1>
@@ -93,7 +104,7 @@ const HeroSection = () => {
               ref={el => textElements.current[4] = el} 
               className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 opacity-0 -translate-y-10 transition-all duration-700"
             >
-              <Button size="lg" className="relative overflow-hidden group">
+              <Button size="lg" className="relative overflow-hidden group animate-pulse-subtle">
                 <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-accent opacity-50 group-hover:opacity-70 transition-opacity"></span>
                 <span className="relative z-10">
                   <a href="#projects">View My Projects</a>
@@ -113,8 +124,9 @@ const HeroSection = () => {
             className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce opacity-0 transition-opacity delay-1000 duration-1000"
             style={{ animationDelay: "1.5s", opacity: 1 }}
           >
-            <a href="#about" aria-label="Scroll down" className="hover:text-primary transition-colors">
-              <ArrowDown size={24} className="text-primary" />
+            <a href="#about" aria-label="Scroll down" className="hover:text-primary transition-colors hover:scale-125 transform transition-transform duration-300 flex flex-col items-center">
+              <span className="mb-2 text-sm font-medium text-primary/70">Discover More</span>
+              <ArrowDown size={24} className="text-primary animate-pulse" />
             </a>
           </div>
         </div>

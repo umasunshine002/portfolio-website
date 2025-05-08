@@ -20,26 +20,26 @@ const Footer = () => {
               href="https://www.linkedin.com/in/umadeviThulluru"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
               aria-label="LinkedIn"
             >
-              <Linkedin size={20} />
+              <Linkedin size={20} className="hover:animate-pulse" />
             </a>
             <a
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
               aria-label="GitHub"
             >
-              <Github size={20} />
+              <Github size={20} className="hover:animate-pulse" />
             </a>
             <a
               href="mailto:umadevit67@gmail.com"
-              className="hover:text-primary transition-colors"
+              className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
               aria-label="Email"
             >
-              <Mail size={20} />
+              <Mail size={20} className="hover:animate-pulse" />
             </a>
           </div>
         </div>
