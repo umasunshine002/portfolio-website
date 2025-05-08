@@ -6,6 +6,7 @@ import ExperienceSection from "@/components/ExperienceSection";
 import EducationSection from "@/components/EducationSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
+import ResumeSection from "@/components/ResumeSection";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
 
@@ -24,6 +25,7 @@ const Index = () => {
         <ExperienceSection />
         <EducationSection />
         <ProjectsSection />
+        <ResumeSection />
         <ContactSection />
       </main>
       <Footer />

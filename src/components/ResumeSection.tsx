@@ -8,7 +8,7 @@ const ResumeSection = () => {
   const handleDownload = () => {
     // Create a link to the resume file
     const link = document.createElement("a");
-    link.href = "/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png";
+    link.href = "/lovable-uploads/26f65743-24ea-41d3-9b8d-30d514659169.png";
     link.download = "Umadevi_Thulluru_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -16,7 +16,7 @@ const ResumeSection = () => {
   };
 
   const handleView = () => {
-    window.open("/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png", "_blank");
+    window.open("/lovable-uploads/26f65743-24ea-41d3-9b8d-30d514659169.png", "_blank");
   };
 
   return (
@@ -36,6 +36,14 @@ const ResumeSection = () => {
                     <h3 className="font-medium text-xl">Umadevi_Thulluru_Resume.pdf</h3>
                     <p className="text-muted-foreground text-sm">Resume showcasing my experience, education, and skills</p>
                   </div>
+                </div>
+                
+                <div className="flex justify-center my-4">
+                  <img 
+                    src="/lovable-uploads/26f65743-24ea-41d3-9b8d-30d514659169.png" 
+                    alt="Umadevi Thulluru Resume" 
+                    className="max-w-full h-auto border border-muted rounded-md shadow-sm" 
+                  />
                 </div>
                 
                 <div className="flex gap-4 justify-end mt-2">
