@@ -6,15 +6,15 @@ const ResumeSection = () => {
   // Function to handle resume download
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/lovable-uploads/Umadevi_Thulluru_Resume.docx";
-    link.download = "Umadevi_Thulluru_Resume.docx";
+    link.href = "/lovable-uploads/UT Resume.docx";
+    link.download = "UT Resume.docx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const handleView = () => {
-    window.open("/lovable-uploads/Umadevi_Thulluru_Resume.docx", "_blank");
+    window.open("/lovable-uploads/UT Resume.docx", "_blank");
   };
 
   return (
@@ -31,7 +31,7 @@ const ResumeSection = () => {
                     <FileText size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-xl">Umadevi_Thulluru_Resume.docx</h3>
+                    <h3 className="font-medium text-xl">UT Resume.docx</h3>
                     <p className="text-muted-foreground text-sm">
                       Resume showcasing my experience, education, and skills
                     </p>
