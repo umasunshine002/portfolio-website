@@ -11,19 +11,16 @@ interface ProjectCardProps {
   technologies: string[];
   githubLink?: string;
   liveLink?: string;
-  delay?: number;
 }
 
-const ProjectCard = ({ title, description, technologies, githubLink, liveLink, delay = 0 }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, technologies, githubLink, liveLink }: ProjectCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('opacity-100', 'translate-y-0', 'rotate-0');
-          }, delay);
+          entry.target.classList.add('opacity-100', 'translate-y-0');
           observer.unobserve(entry.target);
         }
       });
@@ -36,18 +33,18 @@ const ProjectCard = ({ title, description, technologies, githubLink, liveLink, d
     return () => {
       if (cardRef.current) observer.unobserve(cardRef.current);
     };
-  }, [delay]);
+  }, []);
 
   return (
     <Card 
-      className="flex flex-col h-full card-hover overflow-hidden opacity-0 translate-y-10 rotate-2 transition-all duration-700 ease-out transform hover:scale-105 hover:-translate-y-2 hover:rotate-0"
+      className="flex flex-col h-full card-hover overflow-hidden opacity-0 translate-y-10 transition-all duration-700 ease-out"
       ref={cardRef}
     >
       <CardHeader className="pb-2 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary animate-gradient-x"></div>
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-accent to-primary"></div>
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg font-bold">{title}</CardTitle>
-          <div className="bg-primary/10 rounded-full p-1.5 animate-pulse">
+          <div className="bg-primary/10 rounded-full p-1.5">
             <Code size={16} className="text-primary" />
           </div>
         </div>
@@ -60,7 +57,6 @@ const ProjectCard = ({ title, description, technologies, githubLink, liveLink, d
               key={index} 
               variant="outline" 
               className="bg-secondary/10 text-xs transition-all duration-300 hover:bg-primary/20"
-              style={{ animationDelay: `${index * 100}ms`, animationDuration: `${1 + index % 3}s` }}
             >
               {tech}
             </Badge>
@@ -69,17 +65,17 @@ const ProjectCard = ({ title, description, technologies, githubLink, liveLink, d
       </CardContent>
       <CardFooter className="flex justify-start gap-3 pt-0">
         {githubLink && (
-          <Button variant="outline" size="sm" className="gap-1 group" asChild>
+          <Button variant="outline" size="sm" className="gap-1" asChild>
             <a href={githubLink} target="_blank" rel="noopener noreferrer">
-              <Github size={14} className="group-hover:rotate-12 transition-transform duration-300" />
+              <Github size={14} />
               <span>Code</span>
             </a>
           </Button>
         )}
         {liveLink && (
-          <Button size="sm" className="gap-1 group" asChild>
+          <Button size="sm" className="gap-1" asChild>
             <a href={liveLink} target="_blank" rel="noopener noreferrer">
-              <ExternalLink size={14} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+              <ExternalLink size={14} />
               <span>Live Demo</span>
             </a>
           </Button>
@@ -125,20 +121,6 @@ const ProjectsSection = () => {
       technologies: ["Apache Spark", "Kafka", "MongoDB", "Django", "Real-time Processing"],
       githubLink: "#",
       liveLink: "#"
-    },
-    {
-      title: "Facial Recognition System",
-      description: "Developed a facial recognition system using Python and OpenCV, integrating machine learning for precise identity verification.",
-      technologies: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
-      githubLink: "#",
-      liveLink: "#"
-    },
-    {
-      title: "Alternative Medicine Recommendation System",
-      description: "Designed and implemented an AI-powered recommendation system that suggests alternative medicine treatments based on symptoms and medical history.",
-      technologies: ["Python", "TensorFlow", "Natural Language Processing", "Healthcare API"],
-      githubLink: "#",
-      liveLink: "#"
     }
   ];
 
@@ -162,7 +144,6 @@ const ProjectsSection = () => {
               technologies={project.technologies}
               githubLink={project.githubLink}
               liveLink={project.liveLink}
-              delay={index * 200} // Stagger the animation
             />
           ))}
         </div>
