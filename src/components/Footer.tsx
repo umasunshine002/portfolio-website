@@ -1,6 +1,4 @@
 
-import { Github, Linkedin, Mail } from "lucide-react";
-
 const Footer = () => {
   return (
     <footer className="bg-muted/50 py-10">
