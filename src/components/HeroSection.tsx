@@ -116,6 +116,13 @@ const HeroSection = () => {
                 <a href="#contact">Get In Touch</a>
               </span>
             </Button>
+
+            <Button size="lg" variant="outline" className="relative overflow-hidden group">
+              <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary to-accent opacity-20 group-hover:w-full transition-all duration-300"></span>
+              <span className="relative z-10">
+                <a href="/lovable-uploads/UT_Resume.docx" download>Download Resume</a>
+              </span>
+            </Button>
           </div>
         </div>
       </div>
