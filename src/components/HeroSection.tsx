@@ -88,16 +88,15 @@ const HeroSection = () => {
             ref={(el) => (textElements.current[3] = el)}
             className="text-lg mb-6 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Passionate about building meaningful solutions through code. I hold a degree in Computer Science and have
-            experience working with real-time data pipelines, cloud platforms, and full-stack development. I love
-            combining creativity and code to build impactful user experiences.
+            Driven by a passion for crafting meaningful solutions through code, I bring a solid foundation in Computer Science and hands-on experience in real-time data pipelines, cloud technologies, and full-stack development. I thrive at the intersection of creativity and technology—translating ideas into impactful, user-centered applications.
+
           </p>
 
           <p
             ref={(el) => (textElements.current[4] = el)}
             className="text-lg mb-10 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Currently exploring opportunities where I can contribute and grow my skills.
+           Currently seeking opportunities where I can contribute, collaborate, and continue growing as a developer, while solving real-world challenges through innovative engineering.
           </p>
 
           <div
