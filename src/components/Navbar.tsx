@@ -32,7 +32,8 @@ const Navbar = () => {
   ];
 
   const handleViewResume = () => {
-    window.open("/lovable-uploads/UT_Resume.docx", "_blank");
+    const resumeUrl = encodeURIComponent(window.location.origin + "/lovable-uploads/UT_Resume.docx");
+    window.open(`https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`, "_blank");
   };
 
   return (
