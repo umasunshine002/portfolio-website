@@ -73,18 +73,6 @@ const AboutSection = () => {
           </div>
           
           <div className="md:col-span-2">
-            <div 
-              ref={contentRef} 
-              className="overflow-hidden border-none shadow-lg bg-gradient-to-br from-card to-muted/50 h-full rounded-lg p-8 opacity-0 translate-y-10 transition-all duration-700 delay-300 ease-out hover:shadow-xl hover:shadow-primary/15 hover:-translate-y-1"
-            >
-              <p className="text-lg leading-relaxed mb-8 animate-pulse-subtle">
-                I'm a Computer Science graduate with a passion for solving problems through technology. 
-                During my studies and internships, I've gained experience with data systems and web development 
-                projects. I enjoy working with data pipelines, building applications, and learning new 
-                technologies. My goal is to continue growing as a developer and eventually contribute to 
-                projects that make a positive impact.
-              </p>
-
               <div className="mt-10">
                 <h3 className="text-xl font-semibold mb-6 text-foreground/90">Technical Skills</h3>
                 <div 
