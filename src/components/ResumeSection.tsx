@@ -1,22 +1,20 @@
-
-import { FileText, Download, Eye, ArrowRight } from "lucide-react";
+import { FileText, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const ResumeSection = () => {
   // Function to handle resume download
   const handleDownload = () => {
-    // Create a link to the resume file
     const link = document.createElement("a");
-    link.href = "/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png";
-    link.download = "Umadevi_Thulluru_Resume.pdf";
+    link.href = "/lovable-uploads/Umadevi_Thulluru_Resume.docx";
+    link.download = "Umadevi_Thulluru_Resume.docx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const handleView = () => {
-    window.open("/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png", "_blank");
+    window.open("/lovable-uploads/Umadevi_Thulluru_Resume.docx", "_blank");
   };
 
   return (
@@ -33,8 +31,10 @@ const ResumeSection = () => {
                     <FileText size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-xl">Umadevi_Thulluru_Resume.pdf</h3>
-                    <p className="text-muted-foreground text-sm">Resume showcasing my experience, education, and skills</p>
+                    <h3 className="font-medium text-xl">Umadevi_Thulluru_Resume.docx</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Resume showcasing my experience, education, and skills
+                    </p>
                   </div>
                 </div>
                 
