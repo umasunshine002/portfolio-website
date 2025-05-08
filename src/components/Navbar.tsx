@@ -41,7 +41,7 @@ const Navbar = () => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/lovable-uploads/26f65743-24ea-41d3-9b8d-30d514659169.png";
+    link.href = "/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png";
     link.download = "Umadevi_Thulluru_Resume.pdf";
     document.body.appendChild(link);
     link.click();
@@ -49,7 +49,7 @@ const Navbar = () => {
   };
 
   const handleView = () => {
-    window.open("/lovable-uploads/26f65743-24ea-41d3-9b8d-30d514659169.png", "_blank");
+    window.open("/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png", "_blank");
   };
 
   return (
@@ -94,7 +94,7 @@ const Navbar = () => {
               <Linkedin size={20} className="hover:animate-spin-slow" />
             </a>
             <a
-              href="https://github.com/umadevit67"
+              href="#"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
@@ -197,7 +197,7 @@ const Navbar = () => {
                 <Linkedin size={20} />
               </a>
               <a
-                href="https://github.com/umadevit67"
+                href="#"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
