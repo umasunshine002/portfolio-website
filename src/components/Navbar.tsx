@@ -24,12 +24,16 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Skills', href: '#about' },
+    { name: 'Skills', href: '#skills' },
     { name: 'Experience', href: '#experience' },
     { name: 'Education', href: '#education' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
+
+  const handleViewResume = () => {
+    window.open("/lovable-uploads/UT_Resume.docx", "_blank");
+  };
 
   return (
     <nav 
@@ -72,6 +76,16 @@ const Navbar = () => {
           >
             <Github size={20} />
           </a>
+
+          <Button 
+            size="sm" 
+            variant="outline" 
+            onClick={handleViewResume}
+            className="relative overflow-hidden group"
+          >
+            <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary to-accent opacity-20 group-hover:w-full transition-all duration-300"></span>
+            <span className="relative z-10">View Resume</span>
+          </Button>
 
           <Button 
             variant="ghost" 
