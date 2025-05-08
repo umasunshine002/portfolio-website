@@ -94,7 +94,7 @@ const Navbar = () => {
               <Linkedin size={20} className="hover:animate-spin-slow" />
             </a>
             <a
-              href="#"
+              href="https://github.com/umasunshine002"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
