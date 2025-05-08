@@ -116,13 +116,15 @@ const ProjectsSection = () => {
       title: "Real-Time Sentiment Analysis",
       description: "Developed a scalable Django app for real-time sentiment analysis using Spark for processing, Kafka for streaming, and MongoDB for storage.",
       technologies: ["Apache Spark", "Kafka", "MongoDB", "Django", "Real-time Processing"],
-      githubLink: "#"
+      githubLink: "#",
+      liveLink: "#" // Added liveLink property
     },
     {
       title: "Facial Recognition System",
       description: "Developed a facial recognition system using Python and OpenCV, integrating machine learning for precise identity verification.",
       technologies: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
-      githubLink: "#"
+      githubLink: "#",
+      liveLink: "#" // Added liveLink property
     }
   ];
 
