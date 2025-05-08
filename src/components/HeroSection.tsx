@@ -48,9 +48,9 @@ const HeroSection = () => {
       </div>
 
       {/* Content container */}
-      <div className="container relative z-10 mx-auto flex flex-col md:flex-row items-center gap-12">
+      <div className="container relative z-10 mx-auto flex flex-col md:flex-row items-center gap-16">
         {/* Image on the left */}
-        <div className="flex-shrink-0">
+        <div className="flex-shrink-0 w-1/3">
           <div className="rounded-full overflow-hidden w-48 h-48 md:w-64 md:h-64 border-4 border-primary/20 shadow-xl shadow-primary/10 relative transition-all duration-1000 ease-out hover:rotate-3 hover:scale-105">
             <img
               src="/lovable-uploads/9a26e5a1-3506-488a-a363-6a6e2b94a51f.png"
@@ -62,7 +62,7 @@ const HeroSection = () => {
         </div>
 
         {/* Text on the right */}
-        <div className="max-w-2xl text-center md:text-left">
+        <div className="w-2/3 text-center md:text-left">
           <p
             ref={(el) => (textElements.current[0] = el)}
             className="text-lg font-medium text-primary mb-4 opacity-0 -translate-y-10 transition-all duration-700 animate-float"
