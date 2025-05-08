@@ -113,18 +113,32 @@ const ProjectsSection = () => {
 
   const projects = [
     {
+      title: "E-commerce Platform",
+      description: "Built a full-featured e-commerce platform with product catalog, shopping cart, secure checkout, and admin dashboard using React and Node.js.",
+      technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
+      githubLink: "#",
+      liveLink: "#"
+    },
+    {
       title: "Real-Time Sentiment Analysis",
       description: "Developed a scalable Django app for real-time sentiment analysis using Spark for processing, Kafka for streaming, and MongoDB for storage.",
       technologies: ["Apache Spark", "Kafka", "MongoDB", "Django", "Real-time Processing"],
       githubLink: "#",
-      liveLink: "#" // Added liveLink property
+      liveLink: "#"
     },
     {
       title: "Facial Recognition System",
       description: "Developed a facial recognition system using Python and OpenCV, integrating machine learning for precise identity verification.",
       technologies: ["Python", "OpenCV", "Machine Learning", "Computer Vision"],
       githubLink: "#",
-      liveLink: "#" // Added liveLink property
+      liveLink: "#"
+    },
+    {
+      title: "Alternative Medicine Recommendation System",
+      description: "Designed and implemented an AI-powered recommendation system that suggests alternative medicine treatments based on symptoms and medical history.",
+      technologies: ["Python", "TensorFlow", "Natural Language Processing", "Healthcare API"],
+      githubLink: "#",
+      liveLink: "#"
     }
   ];
 
