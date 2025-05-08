@@ -3,6 +3,7 @@ import { Code, ExternalLink, Github } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useEffect, useRef } from "react";
 
 interface ProjectCardProps {
   title: string;
@@ -10,11 +11,38 @@ interface ProjectCardProps {
   technologies: string[];
   githubLink?: string;
   liveLink?: string;
+  delay?: number;
 }
 
-const ProjectCard = ({ title, description, technologies, githubLink, liveLink }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, technologies, githubLink, liveLink, delay = 0 }: ProjectCardProps) => {
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('opacity-100', 'translate-y-0');
+          }, delay);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+    
+    return () => {
+      if (cardRef.current) observer.unobserve(cardRef.current);
+    };
+  }, [delay]);
+
   return (
-    <Card className="flex flex-col h-full card-hover overflow-hidden">
+    <Card 
+      className="flex flex-col h-full card-hover overflow-hidden opacity-0 translate-y-10 transition-all duration-700 ease-out"
+      ref={cardRef}
+    >
       <CardHeader className="pb-2">
         <div className="flex justify-between items-start">
           <CardTitle className="text-lg font-bold">{title}</CardTitle>
@@ -56,17 +84,32 @@ const ProjectCard = ({ title, description, technologies, githubLink, liveLink }:
 };
 
 const ProjectsSection = () => {
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('opacity-100', 'translate-y-0');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) observer.unobserve(sectionRef.current);
+    };
+  }, []);
+
   const projects = [
     {
       title: "Real-Time Sentiment Analysis",
       description: "Developed a scalable Django app for real-time sentiment analysis using Spark for processing, Kafka for streaming, and MongoDB for storage.",
       technologies: ["Apache Spark", "Kafka", "MongoDB", "Django", "Real-time Processing"],
-      githubLink: "#"
-    },
-    {
-      title: "Alternative Medicine Recommendation System",
-      description: "Created a recommendation engine leveraging cosine similarity to suggest alternative medicines based on drug details.",
-      technologies: ["Python", "NumPy", "Pandas", "Cosine Similarity", "ML"],
       githubLink: "#"
     },
     {
@@ -85,9 +128,14 @@ const ProjectsSection = () => {
   ];
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="py-20 overflow-hidden">
       <div className="container mx-auto px-4">
-        <h2 className="section-header">Projects</h2>
+        <h2 
+          className="section-header opacity-0 translate-y-10 transition-all duration-700 ease-out"
+          ref={sectionRef}
+        >
+          Projects
+        </h2>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
@@ -98,6 +146,7 @@ const ProjectsSection = () => {
               technologies={project.technologies}
               githubLink={project.githubLink}
               liveLink={project.liveLink}
+              delay={index * 200} // Stagger the animation
             />
           ))}
         </div>
