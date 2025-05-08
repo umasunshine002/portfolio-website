@@ -33,7 +33,7 @@ const AboutSection = () => {
   return (
     <section id="skills" className="py-20 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-4">
-        <h2 className="section-header text-center opacity-100 mb-10">Technical Skills</h2>
+        <h2 className="section-header text-center opacity-100 mb-10">Skills</h2>
         <div
           ref={skillsRef}
           className="flex flex-wrap gap-2 justify-center opacity-0 translate-y-10 transition-all duration-700 ease-out"
