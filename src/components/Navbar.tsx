@@ -63,7 +63,7 @@ const Navbar = () => {
           href="#" 
           className="text-xl md:text-2xl font-bold gradient-text relative overflow-hidden group"
         >
-          Umadevi<span className="text-foreground">.dev</span>
+          Umadevi Thulluru<span className="text-foreground"></span>
           <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-primary to-accent transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100"></span>
         </a>
 
