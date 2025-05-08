@@ -71,8 +71,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-medium">Phone</p>
-                    <a href="tel:+17343835595" className="text-primary hover:underline">
-                      (734) 383-5595
+                    <a href="tel:+17343836595" className="text-primary hover:underline">
+                      (734) 383-6595
                     </a>
                   </div>
                 </CardContent>
