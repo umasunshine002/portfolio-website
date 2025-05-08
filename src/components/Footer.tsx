@@ -8,11 +8,8 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">
             <a href="#" className="text-xl font-bold gradient-text">
-              Umadevi<span className="text-foreground">.dev</span>
+              Umadevi Thulluru<span className="text-foreground">.dev</span>
             </a>
-            <p className="text-sm text-muted-foreground mt-2">
-              Computer Science Graduate
-            </p>
           </div>
           
           <div className="flex space-x-6 mb-6 md:mb-0">
@@ -26,7 +23,7 @@ const Footer = () => {
               <Linkedin size={20} className="hover:animate-pulse" />
             </a>
             <a
-              href="#"
+              href="https://github.com/umasunshine002"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors transform hover:scale-125 transition-transform duration-300"
@@ -45,7 +42,7 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {new Date().getFullYear()} Umadevi Thulluru. All rights reserved.</p>
+          <p>© Umadevi Thulluru. All rights reserved.</p>
         </div>
       </div>
     </footer>
