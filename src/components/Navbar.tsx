@@ -74,7 +74,7 @@ const Navbar = () => {
           </a>
 
           <a 
-            href="/UT_Resume.docx"
+            href="https://docs.google.com/viewer?url=https://umasunshine002.github.io/portfolio-career-craft/UT_Resume.docx&embedded=true"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -139,7 +139,7 @@ const Navbar = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="/UT_Resume.docx"
+                href="https://docs.google.com/viewer?url=https://umasunshine002.github.io/portfolio-career-craft/UT_Resume.docx&embedded=true"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium hover:text-primary transition-all duration-300"

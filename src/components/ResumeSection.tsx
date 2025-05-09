@@ -26,7 +26,10 @@ const ResumeSection = () => {
   const handleView = () => {
     try {
       setIsLoading(true);
-      window.open("/UT_Resume.docx", "_blank");
+      window.open(
+        "https://docs.google.com/viewer?url=https://umasunshine002.github.io/portfolio-career-craft/UT_Resume.docx&embedded=true",
+        "_blank"
+      );
     } catch (error) {
       console.error("Error viewing resume:", error);
     } finally {
