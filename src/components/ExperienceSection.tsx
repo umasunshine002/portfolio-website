@@ -1,6 +1,6 @@
+
 import { Briefcase, Calendar, Building, MapPin, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useEffect, useRef } from "react";
 
 interface ExperienceItem {
   title: string;
@@ -42,46 +42,17 @@ const experiences: ExperienceItem[] = [
 ];
 
 const ExperienceSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, []);
-
   return (
     <section id="experience" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
-        <h2 
-          className="section-header text-center mb-16 opacity-0 translate-y-10 transition-all duration-700 ease-out"
-          ref={sectionRef}
-        >
-          Work Experience
-        </h2>
+        <h2 className="section-header text-center mb-16">Work Experience</h2>
         
         <div className="space-y-12 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <Card 
               key={index} 
-              className="overflow-hidden border-l-4 hover:shadow-lg transition-all duration-300 card-hover opacity-0 translate-y-10 transition-all duration-700 ease-out"
-              style={{ 
-                borderLeftColor: exp.logoColor,
-                transitionDelay: `${index * 200}ms`
-              }}
+              className="overflow-hidden border-l-4 hover:shadow-lg transition-all duration-300 card-hover"
+              style={{ borderLeftColor: exp.logoColor }}
             >
               <CardContent className="p-0">
                 <div className="p-6 sm:p-8">

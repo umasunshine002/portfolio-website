@@ -1,6 +1,6 @@
+
 import { Book, MapPin, Calendar } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
-import { useEffect, useRef } from "react";
 
 interface EducationItem {
   degree: string;
@@ -28,44 +28,14 @@ const educationData: EducationItem[] = [
 ];
 
 const EducationSection = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('opacity-100', 'translate-y-0');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.1 });
-    
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-    
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
-  }, []);
-
   return (
     <section id="education" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <h2 
-          className="section-header opacity-0 translate-y-10 transition-all duration-700 ease-out"
-          ref={sectionRef}
-        >
-          Education
-        </h2>
+        <h2 className="section-header">Education</h2>
         
         <div className="grid md:grid-cols-2 gap-8">
           {educationData.map((edu, index) => (
-            <Card 
-              key={index} 
-              className="card-hover opacity-0 translate-y-10 transition-all duration-700 ease-out"
-              style={{ transitionDelay: `${index * 200}ms` }}
-            >
+            <Card key={index} className="card-hover">
               <CardContent className="p-6">
                 <div className="flex items-start">
                   <div className="bg-primary/10 rounded-full p-3 mr-4">

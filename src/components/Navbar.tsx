@@ -1,6 +1,12 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Github, Linkedin, Moon, Sun } from 'lucide-react';
+import { Menu, X, Github, Linkedin, FileText, Moon, Sun, Download, Eye } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { 
+  DropdownMenu, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu';
 import { useTheme } from './ThemeProvider';
 
 const Navbar = () => {
@@ -24,15 +30,24 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Skills', href: '#skills' },
+    { name: 'Skills', href: '#about' },
     { name: 'Experience', href: '#experience' },
     { name: 'Education', href: '#education' },
     { name: 'Projects', href: '#projects' },
     { name: 'Contact', href: '#contact' },
   ];
 
-  const handleViewResume = () => {
-    window.open("/resume/UT_Resume_Optimized.docx", "_blank");
+  const handleDownload = () => {
+    const link = document.createElement("a");
+    link.href = "/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png";
+    link.download = "Umadevi_Thulluru_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleView = () => {
+    window.open("/lovable-uploads/4807c77b-cd01-4313-ae59-fac016cf6a42.png", "_blank");
   };
 
   return (
@@ -56,7 +71,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right: Social Icons & Theme Toggle */}
+        {/* Right: Social Icons & Resume */}
         <div className="hidden md:flex items-center space-x-3">
           <a
             href="https://www.linkedin.com/in/umadeviThulluru"
@@ -77,15 +92,21 @@ const Navbar = () => {
             <Github size={20} />
           </a>
 
-          <Button 
-            size="sm" 
-            variant="outline" 
-            onClick={handleViewResume}
-            className="relative overflow-hidden group"
-          >
-            <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary to-accent opacity-20 group-hover:w-full transition-all duration-300"></span>
-            <span className="relative z-10">View Resume</span>
-          </Button>
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button size="sm" variant="outline">
+                <FileText size={16} className="mr-2" /> Resume
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={handleView} className="cursor-pointer">
+                <Eye size={16} className="mr-2" /> View
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handleDownload} className="cursor-pointer">
+                <Download size={16} className="mr-2" /> Download
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           <Button 
             variant="ghost" 
@@ -137,6 +158,12 @@ const Navbar = () => {
               <a href="https://github.com/umasunshine002" target="_blank" rel="noopener noreferrer">
                 <Github size={20} />
               </a>
+              <Button onClick={handleView} size="sm" variant="ghost">
+                <Eye size={16} className="mr-2" /> View
+              </Button>
+              <Button onClick={handleDownload} size="sm" variant="ghost">
+                <Download size={16} className="mr-2" /> Download
+              </Button>
             </div>
           </div>
         </div>

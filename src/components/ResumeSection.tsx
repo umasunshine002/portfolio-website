@@ -1,37 +1,20 @@
 import { FileText, Download, Eye } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { useState } from "react";
 
 const ResumeSection = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
   // Function to handle resume download
   const handleDownload = () => {
-    try {
-      setIsLoading(true);
-      const link = document.createElement("a");
-      link.href = "/UT_Resume.pdf";
-      link.download = "UT_Resume.pdf";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } catch (error) {
-      console.error("Error downloading resume:", error);
-    } finally {
-      setIsLoading(false);
-    }
+    const link = document.createElement("a");
+    link.href = "/lovable-uploads/UT Resume.docx";
+    link.download = "UT_Resume.docx";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
 
   const handleView = () => {
-    try {
-      setIsLoading(true);
-      window.open("/UT_Resume.pdf", "_blank");
-    } catch (error) {
-      console.error("Error viewing resume:", error);
-    } finally {
-      setIsLoading(false);
-    }
+    window.open("/lovable-uploads/UT_Resume.docx", "_blank");
   };
 
   return (
@@ -48,7 +31,7 @@ const ResumeSection = () => {
                     <FileText size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-xl">UT_Resume_Optimized.docx</h3>
+                    <h3 className="font-medium text-xl">UT_Resume.docx</h3>
                     <p className="text-muted-foreground text-sm">
                       Resume showcasing my experience, education, and skills
                     </p>
@@ -60,19 +43,17 @@ const ResumeSection = () => {
                     variant="outline" 
                     onClick={handleView}
                     className="flex items-center gap-2"
-                    disabled={isLoading}
                   >
                     <Eye size={18} />
-                    {isLoading ? "Loading..." : "View"}
+                    View
                   </Button>
                   
                   <Button 
                     onClick={handleDownload}
                     className="flex items-center gap-2"
-                    disabled={isLoading}
                   >
                     <Download size={18} />
-                    {isLoading ? "Loading..." : "Download"}
+                    Download
                   </Button>
                 </div>
               </div>
