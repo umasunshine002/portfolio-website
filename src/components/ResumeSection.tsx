@@ -11,8 +11,8 @@ const ResumeSection = () => {
     try {
       setIsLoading(true);
       const link = document.createElement("a");
-      link.href = "/UT_Resume.docx";
-      link.download = "UT_Resume.docx";
+      link.href = "/UT_Resume.pdf";
+      link.download = "UT_Resume.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -26,10 +26,7 @@ const ResumeSection = () => {
   const handleView = () => {
     try {
       setIsLoading(true);
-      window.open(
-        "https://docs.google.com/viewer?url=https://umasunshine002.github.io/portfolio-career-craft/UT_Resume.docx&embedded=true",
-        "_blank"
-      );
+      window.open("/UT_Resume.pdf", "_blank");
     } catch (error) {
       console.error("Error viewing resume:", error);
     } finally {
@@ -51,7 +48,7 @@ const ResumeSection = () => {
                     <FileText size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-xl">UT_Resume.docx</h3>
+                    <h3 className="font-medium text-xl">UT_Resume.pdf</h3>
                     <p className="text-muted-foreground text-sm">
                       Resume showcasing my experience, education, and skills
                     </p>
