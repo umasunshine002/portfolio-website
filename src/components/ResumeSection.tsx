@@ -11,8 +11,8 @@ const ResumeSection = () => {
     try {
       setIsLoading(true);
       const link = document.createElement("a");
-      link.href = "/resume/UT_Resume_Optimized.docx";
-      link.download = "UT_Resume_Optimized.docx";
+      link.href = "/UT_Resume.pdf";
+      link.download = "UT_Resume.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -26,7 +26,7 @@ const ResumeSection = () => {
   const handleView = () => {
     try {
       setIsLoading(true);
-      window.open("/resume/UT_Resume_Optimized.docx", "_blank");
+      window.open("/UT_Resume.pdf", "_blank");
     } catch (error) {
       console.error("Error viewing resume:", error);
     } finally {
