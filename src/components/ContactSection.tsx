@@ -7,6 +7,9 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import emailjs from '@emailjs/browser';
 
+// Initialize EmailJS
+emailjs.init("ODVtWr67bU7b08PFE");
+
 const ContactSection = () => {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -26,16 +29,17 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        to_name: 'Umadevi Thulluru',
+      };
+
       await emailjs.send(
-        'YOUR_SERVICE_ID', // Replace with your EmailJS service ID
-        'YOUR_TEMPLATE_ID', // Replace with your EmailJS template ID
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          message: formData.message,
-          to_name: 'Umadevi Thulluru',
-        },
-        'YOUR_PUBLIC_KEY' // Replace with your EmailJS public key
+        'service_tplf84y',
+        'template_lzpb4jk',
+        templateParams
       );
 
       toast({
@@ -44,6 +48,7 @@ const ContactSection = () => {
       });
       setFormData({ name: "", email: "", message: "" });
     } catch (error) {
+      console.error('Error sending email:', error);
       toast({
         title: "Error",
         description: "Failed to send message. Please try again later.",
