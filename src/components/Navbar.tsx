@@ -52,7 +52,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Right: Social Icons & Theme Toggle */}
+        {/* Right: Social Icons & Resume */}
         <div className="hidden md:flex items-center space-x-3">
           <a
             href="https://www.linkedin.com/in/umadeviThulluru"
@@ -137,6 +137,14 @@ const Navbar = () => {
               </a>
               <a href="https://github.com/umasunshine002" target="_blank" rel="noopener noreferrer">
                 <Github size={20} />
+              </a>
+              <a 
+                href="/UT-Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium hover:text-primary transition-all duration-300"
+              >
+                View Resume
               </a>
             </div>
           </div>

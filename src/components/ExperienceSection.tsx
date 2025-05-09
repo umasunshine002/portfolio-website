@@ -44,14 +44,13 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
-        <h2 className="section-header text-center mb-16">
-          Work Experience
-        </h2>
+        <h2 className="section-header text-center mb-16">Work Experience</h2>
+        
         <div className="space-y-12 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <Card 
               key={index} 
-              className="overflow-hidden border-l-4 hover:shadow-lg card-hover"
+              className="overflow-hidden border-l-4 hover:shadow-lg transition-all duration-300 card-hover"
               style={{ borderLeftColor: exp.logoColor }}
             >
               <CardContent className="p-0">

@@ -30,15 +30,11 @@ const EducationSection = () => {
   return (
     <section id="education" className="py-20 bg-muted/30">
       <div className="container mx-auto px-4">
-        <h2 className="section-header">
-          Education
-        </h2>
+        <h2 className="section-header">Education</h2>
+        
         <div className="grid md:grid-cols-2 gap-8">
           {educationData.map((edu, index) => (
-            <Card 
-              key={index} 
-              className="card-hover"
-            >
+            <Card key={index} className="card-hover">
               <CardContent className="p-6">
                 <div className="flex items-start">
                   <div className="bg-primary/10 rounded-full p-3 mr-4">

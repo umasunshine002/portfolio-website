@@ -63,7 +63,7 @@ const ResumeSection = () => {
                     disabled={isLoading}
                   >
                     <Eye size={18} />
-                    {isLoading ? "Loading..." : "View"}
+                    View
                   </Button>
                   
                   <Button 
@@ -72,7 +72,7 @@ const ResumeSection = () => {
                     disabled={isLoading}
                   >
                     <Download size={18} />
-                    {isLoading ? "Loading..." : "Download"}
+                    Download
                   </Button>
                 </div>
               </div>
