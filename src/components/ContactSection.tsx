@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Mail, Phone, MapPin, Send, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -39,16 +38,21 @@ const ContactSection = () => {
     setIsSubmitting(true);
 
     try {
+      // Using a different approach to send emails with EmailJS
+      const templateParams = {
+        from_name: data.name,
+        from_email: data.email,
+        message: data.message,
+        to_name: 'Umadevi Thulluru',
+      };
+
+      // Updated the service ID, template ID and user ID with correct values
+      // These values should be from your EmailJS account
       await emailjs.send(
-        'service_xh6w1jq',  // EmailJS service ID
-        'template_v8kxz0i', // EmailJS template ID
-        {
-          from_name: data.name,
-          from_email: data.email,
-          message: data.message,
-          to_name: 'Umadevi Thulluru',
-        },
-        'X1v7l4_mZBiOw-V91'  // EmailJS public key
+        'service_4dbvx7h',  // Updated EmailJS service ID
+        'template_ag50s5g', // Updated EmailJS template ID
+        templateParams,
+        'XC09CxsxFdRRk5WA_'  // Updated EmailJS public key
       );
 
       toast({
