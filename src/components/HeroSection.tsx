@@ -53,9 +53,9 @@ const HeroSection = () => {
         <div className="flex-shrink-0 w-1/3">
           <div className="rounded-full overflow-hidden w-48 h-48 md:w-64 md:h-64 border-4 border-primary/20 shadow-xl shadow-primary/10 relative transition-all duration-1000 ease-out hover:rotate-3 hover:scale-105">
             <img
-              src="/lovable-uploads/9a26e5a1-3506-488a-a363-6a6e2b94a51f.png"
-              alt="Umadevi Thulluru"
-              className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
+              alt="Profile"
+              className="rounded-full object-cover w-32 h-32 md:w-40 md:h-40 border-4 border-primary/20"
+              src="/images/profile.png"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
           </div>

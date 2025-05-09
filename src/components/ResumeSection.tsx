@@ -6,15 +6,15 @@ const ResumeSection = () => {
   // Function to handle resume download
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/lovable-uploads/UT Resume.docx";
-    link.download = "UT_Resume.docx";
+    link.href = "/resume/UT_Resume_Optimized.docx";
+    link.download = "UT_Resume_Optimized.docx";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   const handleView = () => {
-    window.open("/lovable-uploads/UT_Resume.docx", "_blank");
+    window.open("/resume/UT_Resume_Optimized.docx", "_blank");
   };
 
   return (
