@@ -74,7 +74,7 @@ const Navbar = () => {
           </a>
 
           <a 
-            href="/UT_Resume.docx"
+            href="/UT_Resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
           >
