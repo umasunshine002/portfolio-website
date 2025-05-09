@@ -26,7 +26,7 @@ const ResumeSection = () => {
   const handleView = () => {
     try {
       setIsLoading(true);
-      window.open("/UT_Resume.docx", "_blank");
+      window.open("/UT_Resume.pdf", "_blank");
     } catch (error) {
       console.error("Error viewing resume:", error);
     } finally {
