@@ -26,8 +26,7 @@ const ResumeSection = () => {
   const handleView = () => {
     try {
       setIsLoading(true);
-      const resumeUrl = encodeURIComponent(window.location.origin + "/resume/UT_Resume_Optimized.docx");
-      window.open(`https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`, "_blank");
+      window.open("/resume/UT_Resume_Optimized.docx", "_blank");
     } catch (error) {
       console.error("Error viewing resume:", error);
     } finally {

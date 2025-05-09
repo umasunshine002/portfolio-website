@@ -32,8 +32,7 @@ const Navbar = () => {
   ];
 
   const handleViewResume = () => {
-    const resumeUrl = encodeURIComponent(window.location.origin + "/resume/UT_Resume_Optimized.docx");
-    window.open(`https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`, "_blank");
+    window.open("/resume/UT_Resume_Optimized.docx", "_blank");
   };
 
   return (
