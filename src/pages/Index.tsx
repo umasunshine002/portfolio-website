@@ -8,7 +8,6 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import SkillsSection from "@/components/SkillsSection";
-import ResumeSection from "@/components/ResumeSection";
 import { useEffect } from "react";
 
 const Index = () => {
@@ -26,7 +25,6 @@ const Index = () => {
         <ExperienceSection />
         <EducationSection />
         <ProjectsSection />
-        <ResumeSection />
         <ContactSection />
       </main>
       <Footer />
