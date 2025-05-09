@@ -50,10 +50,10 @@ const ContactForm = () => {
       // Updated the service ID, template ID and user ID with correct values
       // These values should be from your EmailJS account
       await emailjs.send(
-        'service_4dbvx7h',  // Updated EmailJS service ID
-        'template_ag50s5g', // Updated EmailJS template ID
+        'service_tplf84y',  // Updated EmailJS service ID
+        'template_lzpb4jk', // Updated EmailJS template ID
         templateParams,
-        'XC09CxsxFdRRk5WA_'  // Updated EmailJS public key
+        'ODVtWr67bU7b08PFE'  // Updated EmailJS public key
       );
 
       toast({
