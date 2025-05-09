@@ -31,10 +31,6 @@ const Navbar = () => {
     { name: 'Contact', href: '#contact' },
   ];
 
-  const handleViewResume = () => {
-    window.open("/UT-Resume.pdf", "_blank");
-  };
-
   return (
     <nav 
       className={`fixed w-full top-0 z-50 transition-all duration-500 ${
@@ -77,15 +73,20 @@ const Navbar = () => {
             <Github size={20} />
           </a>
 
-          <Button 
-            size="sm" 
-            variant="outline" 
-            onClick={handleViewResume}
-            className="relative overflow-hidden group"
+          <a 
+            href="/UT-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary to-accent opacity-20 group-hover:w-full transition-all duration-300"></span>
-            <span className="relative z-10">View Resume</span>
-          </Button>
+            <Button 
+              size="sm" 
+              variant="outline" 
+              className="relative overflow-hidden group"
+            >
+              <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary to-accent opacity-20 group-hover:w-full transition-all duration-300"></span>
+              <span className="relative z-10">View Resume</span>
+            </Button>
+          </a>
 
           <Button 
             variant="ghost" 
