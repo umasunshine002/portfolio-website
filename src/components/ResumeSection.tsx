@@ -11,7 +11,7 @@ const ResumeSection = () => {
     try {
       setIsLoading(true);
       const link = document.createElement("a");
-      link.href = "/UT-Resume.docx";
+      link.href = "/UT_Resume.docx";
       link.download = "UT_Resume.docx";
       document.body.appendChild(link);
       link.click();
@@ -48,7 +48,7 @@ const ResumeSection = () => {
                     <FileText size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-xl">UT-Resume.pdf</h3>
+                    <h3 className="font-medium text-xl">UT_Resume.docx</h3>
                     <p className="text-muted-foreground text-sm">
                       Resume showcasing my experience, education, and skills
                     </p>

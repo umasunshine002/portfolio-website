@@ -74,7 +74,7 @@ const Navbar = () => {
           </a>
 
           <a 
-            href="/UT-Resume.pdf"
+            href="/UT_Resume.docx"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -139,7 +139,7 @@ const Navbar = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="/UT-Resume.pdf"
+                href="/UT_Resume.docx"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium hover:text-primary transition-all duration-300"
