@@ -32,7 +32,7 @@ const Navbar = () => {
   ];
 
   const handleViewResume = () => {
-    window.open("/resume/UT_Resume_Optimized.docx", "_blank");
+    window.open("/UT-Resume.pdf", "_blank");
   };
 
   return (

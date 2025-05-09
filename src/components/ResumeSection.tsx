@@ -11,8 +11,8 @@ const ResumeSection = () => {
     try {
       setIsLoading(true);
       const link = document.createElement("a");
-      link.href = "/resume/UT_Resume_Optimized.docx";
-      link.download = "UT_Resume_Optimized.docx";
+      link.href = "/UT-Resume.pdf";
+      link.download = "UT-Resume.pdf";
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -26,7 +26,7 @@ const ResumeSection = () => {
   const handleView = () => {
     try {
       setIsLoading(true);
-      window.open("/resume/UT_Resume_Optimized.docx", "_blank");
+      window.open("/UT-Resume.pdf", "_blank");
     } catch (error) {
       console.error("Error viewing resume:", error);
     } finally {
@@ -48,7 +48,7 @@ const ResumeSection = () => {
                     <FileText size={24} className="text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-medium text-xl">UT_Resume_Optimized.docx</h3>
+                    <h3 className="font-medium text-xl">UT-Resume.pdf</h3>
                     <p className="text-muted-foreground text-sm">
                       Resume showcasing my experience, education, and skills
                     </p>
