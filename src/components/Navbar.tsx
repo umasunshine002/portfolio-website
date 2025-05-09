@@ -139,7 +139,7 @@ const Navbar = () => {
                 <Github size={20} />
               </a>
               <a 
-                href="/UT_Resume.docx"
+                href="/UT_Resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium hover:text-primary transition-all duration-300"
