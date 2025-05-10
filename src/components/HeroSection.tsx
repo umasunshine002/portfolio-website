@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { useEffect, useRef } from "react";
 
@@ -36,6 +37,17 @@ const HeroSection = () => {
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
+
+  // Add smooth scrolling function
+  const scrollToSection = (elementId: string) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      element.scrollIntoView({ 
+        behavior: "smooth",
+        block: "start" 
+      });
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-12 md:py-24">
@@ -103,17 +115,26 @@ const HeroSection = () => {
             ref={(el) => (textElements.current[5] = el)}
             className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            <Button size="lg" className="relative overflow-hidden group animate-pulse-subtle">
+            <Button 
+              size="lg" 
+              className="relative overflow-hidden group animate-pulse-subtle"
+              onClick={() => scrollToSection("projects")}
+            >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-accent opacity-50 group-hover:opacity-70 transition-opacity"></span>
               <span className="relative z-10">
-                <a href="#projects">View My Projects</a>
+                View My Projects
               </span>
             </Button>
 
-            <Button size="lg" variant="outline" className="relative overflow-hidden group">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="relative overflow-hidden group"
+              onClick={() => scrollToSection("contact")}
+            >
               <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary to-accent opacity-20 group-hover:w-full transition-all duration-300"></span>
               <span className="relative z-10">
-                <a href="#contact">Get In Touch</a>
+                Get In Touch
               </span>
             </Button>
           </div>
@@ -124,4 +145,3 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
-
