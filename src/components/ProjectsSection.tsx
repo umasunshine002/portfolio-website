@@ -1,5 +1,5 @@
 
-import { Code, ExternalLink, Github } from "lucide-react";
+import { Code, Github } from "lucide-react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,11 +9,10 @@ interface ProjectCardProps {
   title: string;
   description: string;
   technologies: string[];
-  githubLink?: string;
-  liveLink?: string;
+  githubLink: string;
 }
 
-const ProjectCard = ({ title, description, technologies, githubLink, liveLink }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, technologies, githubLink }: ProjectCardProps) => {
   const cardRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
@@ -64,22 +63,12 @@ const ProjectCard = ({ title, description, technologies, githubLink, liveLink }:
         </div>
       </CardContent>
       <CardFooter className="flex justify-start gap-3 pt-0">
-        {githubLink && (
-          <Button variant="outline" size="sm" className="gap-1" asChild>
-            <a href={githubLink} target="_blank" rel="noopener noreferrer">
-              <Github size={14} />
-              <span>Code</span>
-            </a>
-          </Button>
-        )}
-        {liveLink && (
-          <Button size="sm" className="gap-1" asChild>
-            <a href={liveLink} target="_blank" rel="noopener noreferrer">
-              <ExternalLink size={14} />
-              <span>Live Demo</span>
-            </a>
-          </Button>
-        )}
+        <Button variant="outline" size="sm" className="gap-1" asChild>
+          <a href={githubLink} target="_blank" rel="noopener noreferrer">
+            <Github size={14} />
+            <span>Code</span>
+          </a>
+        </Button>
       </CardFooter>
     </Card>
   );
@@ -112,15 +101,13 @@ const ProjectsSection = () => {
       title: "E-commerce Platform",
       description: "Built a full-featured e-commerce platform with product catalog, shopping cart, secure checkout, and admin dashboard using React and Node.js.",
       technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
-      githubLink: "#",
-      liveLink: "#"
+      githubLink: "https://github.com/umadevithulluru"
     },
     {
       title: "Real-Time Sentiment Analysis",
       description: "Developed a scalable Django app for real-time sentiment analysis using Spark for processing, Kafka for streaming, and MongoDB for storage.",
       technologies: ["Apache Spark", "Kafka", "MongoDB", "Django", "Real-time Processing"],
-      githubLink: "#",
-      liveLink: "#"
+      githubLink: "https://github.com/umadevithulluru"
     }
   ];
 
@@ -143,7 +130,6 @@ const ProjectsSection = () => {
               description={project.description}
               technologies={project.technologies}
               githubLink={project.githubLink}
-              liveLink={project.liveLink}
             />
           ))}
         </div>
