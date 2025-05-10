@@ -80,8 +80,8 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <p className="font-medium">Email</p>
-                    <a href="mailto:umadevit67@gmail.com" className="text-primary hover:underline">
-                      umadevit67@gmail.com
+                    <a href="mailto:umathulluru02@gmail.com" className="text-primary hover:underline">
+                      umathulluru02@gmail.com
                     </a>
                   </div>
                 </CardContent>
