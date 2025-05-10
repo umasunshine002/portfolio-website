@@ -101,13 +101,13 @@ const ProjectsSection = () => {
       title: "E-commerce Platform",
       description: "Built a full-featured e-commerce platform with product catalog, shopping cart, secure checkout, and admin dashboard using React and Node.js.",
       technologies: ["React", "Node.js", "Express", "MongoDB", "Stripe API"],
-      githubLink: "https://github.com/umadevithulluru"
+      githubLink: "https://github.com/umasunshine002"
     },
     {
       title: "Real-Time Sentiment Analysis",
       description: "Developed a scalable Django app for real-time sentiment analysis using Spark for processing, Kafka for streaming, and MongoDB for storage.",
       technologies: ["Apache Spark", "Kafka", "MongoDB", "Django", "Real-time Processing"],
-      githubLink: "https://github.com/umadevithulluru"
+      githubLink: "https://github.com/umasunshine002"
     }
   ];
 
