@@ -92,22 +92,21 @@ const HeroSection = () => {
             ref={(el) => (textElements.current[2] = el)}
             className="text-2xl md:text-3xl text-muted-foreground font-medium mb-8 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Computer Science Graduate & Tech Enthusiast
+            Data & Business Analyst | Dashboard Expert
           </h2>
 
           <p
             ref={(el) => (textElements.current[3] = el)}
             className="text-lg mb-6 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Driven by a passion for crafting meaningful solutions through code, I bring a solid foundation in Computer Science and hands-on experience in real-time data pipelines, cloud technologies, and full-stack development. I thrive at the intersection of creativity and technology—translating ideas into impactful, user-centered applications.
-
+            Transforming raw data into actionable insights through advanced analytics, interactive dashboards, and strategic business intelligence. With expertise in data pipelines, visualization tools, and statistical analysis, I excel at uncovering trends and driving data-informed decision making.
           </p>
 
           <p
             ref={(el) => (textElements.current[4] = el)}
             className="text-lg mb-10 opacity-0 -translate-y-10 transition-all duration-700"
           >
-           Currently seeking opportunities where I can contribute, collaborate, and continue growing as a developer, while solving real-world challenges through innovative engineering.
+           Currently seeking Business Analyst and Data Analyst opportunities where I can leverage my analytical skills, technical expertise, and passion for storytelling with data to drive organizational success.
           </p>
 
           <div
@@ -121,7 +120,7 @@ const HeroSection = () => {
             >
               <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-accent opacity-50 group-hover:opacity-70 transition-opacity"></span>
               <span className="relative z-10">
-                View My Projects
+                View Analytics Projects
               </span>
             </Button>
 

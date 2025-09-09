@@ -1,9 +1,10 @@
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import DashboardMetrics from "@/components/DashboardMetrics";
 import AboutSection from "@/components/AboutSection";
 import ExperienceSection from "@/components/ExperienceSection";
 import EducationSection from "@/components/EducationSection";
-import ProjectsSection from "@/components/ProjectsSection";
+import AnalyticsProjects from "@/components/AnalyticsProjects";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import SkillsSection from "@/components/SkillsSection";
@@ -12,7 +13,7 @@ import { useEffect } from "react";
 const Index = () => {
   useEffect(() => {
     // Update document title
-    document.title = "Umadevi Thulluru | Portfolio";
+    document.title = "Umadevi Thulluru | Data & Business Analyst";
   }, []);
 
   return (
@@ -20,10 +21,11 @@ const Index = () => {
       <Navbar />
       <main>
         <HeroSection />
+        <DashboardMetrics />
         <SkillsSection />
         <ExperienceSection />
         <EducationSection />
-        <ProjectsSection />
+        <AnalyticsProjects />
         <ContactSection />
       </main>
       <Footer />
