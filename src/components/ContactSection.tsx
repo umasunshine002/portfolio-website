@@ -1,184 +1,159 @@
-import { useState } from "react";
-import { Mail, Phone, MapPin, Send } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { useToast } from "@/components/ui/use-toast";
-import emailjs from '@emailjs/browser';
-
-// Initialize EmailJS
-emailjs.init("ODVtWr67bU7b08PFE");
+import { useState, useEffect } from "react";
+import { Mail, Terminal, Activity, MessageSquare, ExternalLink } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const ContactSection = () => {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [consoleLines, setConsoleLines] = useState<string[]>([]);
+  const [currentTime, setCurrentTime] = useState(new Date());
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+    const lines = [
+      "$ system.status --contact-module",
+      "✓ Contact interface initialized",
+      "✓ Email protocol active",
+      "✓ Response time: ~24 hours",
+      "$ Ready for professional inquiries"
+    ];
 
-    try {
-      const templateParams = {
-        from_name: formData.name,
-        from_email: formData.email,
-        message: formData.message,
-        to_name: 'Umadevi Thulluru',
-      };
+    lines.forEach((line, index) => {
+      setTimeout(() => {
+        setConsoleLines(prev => [...prev, line]);
+      }, index * 500);
+    });
 
-      await emailjs.send(
-        'service_tplf84y',
-        'template_lzpb4jk',
-        templateParams
-      );
+    return () => clearInterval(timer);
+  }, []);
 
-      toast({
-        title: "Message sent!",
-        description: "Thank you for reaching out. I'll get back to you soon.",
-      });
-      setFormData({ name: "", email: "", message: "" });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again later.",
-        variant: "destructive",
-      });
-    } finally {
-      setIsSubmitting(false);
+  const contactStats = [
+    {
+      label: "Response Time",
+      value: "< 24h",
+      icon: Activity,
+      color: "text-green-500",
+      bgColor: "bg-green-500/10"
+    },
+    {
+      label: "Availability",
+      value: "Open",
+      icon: Terminal,
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/10"
+    },
+    {
+      label: "Status",
+      value: "Active",
+      icon: MessageSquare,
+      color: "text-purple-500",
+      bgColor: "bg-purple-500/10"
     }
-  };
+  ];
 
   return (
-    <section id="contact" className="py-20">
+    <section id="contact" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
-        <h2 className="section-header">Get In Touch</h2>
+        <h2 className="section-header text-center mb-16">Contact Dashboard</h2>
         
-        <div className="grid md:grid-cols-2 gap-10">
-          <div>
-            <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
-            <p className="text-muted-foreground mb-8">
-              Feel free to reach out to me directly or use the contact form. I'm always open 
-              to discussing new projects, opportunities, or partnerships.
-            </p>
-            
-            <div className="space-y-6">
-              <Card className="card-hover">
-                <CardContent className="flex items-center p-4">
-                  <div className="bg-primary/10 rounded-full p-3 mr-4">
-                    <Mail className="text-primary" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Email</p>
-                    <a href="mailto:umathulluru02@gmail.com" className="text-primary hover:underline">
-                      umathulluru02@gmail.com
-                    </a>
+        <div className="max-w-6xl mx-auto">
+          {/* Status Bar */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+            {contactStats.map((stat, index) => (
+              <Card key={index} className="border border-primary/20 bg-card/50 backdrop-blur-sm hover:bg-card/80 transition-all duration-300">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-sm text-muted-foreground">{stat.label}</p>
+                      <p className={`text-lg font-bold ${stat.color}`}>{stat.value}</p>
+                    </div>
+                    <div className={`p-2 rounded-lg ${stat.bgColor}`}>
+                      <stat.icon className={`w-5 h-5 ${stat.color}`} />
+                    </div>
                   </div>
                 </CardContent>
               </Card>
-              
-              <Card className="card-hover">
-                <CardContent className="flex items-center p-4">
-                  <div className="bg-primary/10 rounded-full p-3 mr-4">
-                    <Phone className="text-primary" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Phone</p>
-                    <a href="tel:+17343836595" className="text-primary hover:underline">
-                      (734) 383-6595
-                    </a>
-                  </div>
-                </CardContent>
-              </Card>
-              
-              <Card className="card-hover">
-                <CardContent className="flex items-center p-4">
-                  <div className="bg-primary/10 rounded-full p-3 mr-4">
-                    <MapPin className="text-primary" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Location</p>
-                    <p className="text-muted-foreground">Novi, MI</p>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            ))}
           </div>
-          
-          <div>
-            <Card className="card-hover">
-              <CardContent className="p-6">
-                <h3 className="text-xl font-bold mb-4">Send Me a Message</h3>
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-1">
-                      Name
-                    </label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Your name"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-1">
-                      Email
-                    </label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="Your email"
-                      required
-                    />
-                  </div>
-                  
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-1">
-                      Message
-                    </label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="How can I help you?"
-                      rows={5}
-                      required
-                    />
-                  </div>
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full"
-                    disabled={isSubmitting}
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Console Interface */}
+            <Card className="border border-primary/20 bg-black/90 text-green-400 overflow-hidden">
+              <CardHeader className="bg-gradient-to-r from-primary/20 to-accent/20 border-b border-primary/20">
+                <CardTitle className="font-mono text-sm flex items-center gap-2">
+                  <Terminal className="w-4 h-4" />
+                  contact@umadevi-thulluru:~$ 
+                  <span className="text-xs text-muted-foreground ml-auto">
+                    {currentTime.toLocaleTimeString()}
+                  </span>
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-4 space-y-2 font-mono text-sm h-64 overflow-y-auto">
+                {consoleLines.map((line, index) => (
+                  <div 
+                    key={index} 
+                    className="animate-fade-in"
+                    style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    {isSubmitting ? (
-                      "Sending..."
-                    ) : (
-                      <>
-                        <Send size={16} className="mr-2" />
-                        Send Message
-                      </>
-                    )}
-                  </Button>
-                </form>
+                    {line}
+                  </div>
+                ))}
+                <div className="flex items-center">
+                  <span>$ </span>
+                  <div className="w-2 h-4 bg-green-400 animate-pulse ml-1"></div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Email Interface */}
+            <Card className="border border-primary/20 bg-gradient-to-br from-card/50 to-muted/30 backdrop-blur-sm">
+              <CardHeader className="border-b border-primary/20">
+                <CardTitle className="flex items-center gap-2">
+                  <Mail className="w-5 h-5 text-primary" />
+                  Direct Contact
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="p-6">
+                <div className="space-y-6">
+                  <div className="group cursor-pointer">
+                    <div className="flex items-center justify-between p-4 rounded-lg border border-primary/20 bg-card/50 hover:bg-card/80 transition-all duration-300 hover:border-primary/40">
+                      <div className="flex items-center gap-4">
+                        <div className="p-3 rounded-full bg-primary/10">
+                          <Mail className="w-5 h-5 text-primary" />
+                        </div>
+                        <div>
+                          <p className="font-medium">Primary Email</p>
+                          <a 
+                            href="mailto:umathulluru02@gmail.com" 
+                            className="text-primary hover:underline text-sm"
+                          >
+                            umathulluru02@gmail.com
+                          </a>
+                        </div>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </div>
+                  </div>
+
+                  <div className="p-4 rounded-lg bg-muted/30 border border-dashed border-primary/20">
+                    <h4 className="font-medium mb-2 text-primary">Professional Inquiries</h4>
+                    <p className="text-sm text-muted-foreground">
+                      Open to Business Analyst, Data Analyst, and Data Engineering opportunities. 
+                      Response guaranteed within 24 hours.
+                    </p>
+                  </div>
+
+                  <div className="flex items-center justify-center p-6 border-2 border-dashed border-primary/20 rounded-lg hover:border-primary/40 transition-colors">
+                    <div className="text-center">
+                      <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-2">
+                        <Activity className="w-4 h-4 text-primary animate-pulse" />
+                      </div>
+                      <p className="text-sm font-medium">Always Monitoring</p>
+                      <p className="text-xs text-muted-foreground">Real-time notification system active</p>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </Card>
           </div>

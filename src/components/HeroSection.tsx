@@ -60,19 +60,54 @@ const HeroSection = () => {
 
       {/* Content container */}
       <div className="container relative z-10 mx-auto flex flex-col md:flex-row items-center gap-16">
-        {/* Image on the left */}
+        {/* Dashboard Console Interface */}
         <div className="flex-shrink-0 w-1/3">
-          <div className="rounded-full overflow-hidden w-48 h-48 md:w-64 md:h-64 border-4 border-primary/20 shadow-xl shadow-primary/10 relative transition-all duration-1000 ease-out hover:rotate-3 hover:scale-105">
-            <img
-              src="/lovable-uploads/9a26e5a1-3506-488a-a363-6a6e2b94a51f.png"
-              alt="Umadevi Thulluru"
-              className="w-full h-full object-cover transform transition-transform duration-500 hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="relative">
+            {/* Main Dashboard */}
+            <div className="bg-black/90 border border-primary/30 rounded-lg p-4 shadow-2xl shadow-primary/20">
+              <div className="border-b border-primary/20 pb-2 mb-4">
+                <div className="flex items-center justify-between text-green-400 font-mono text-xs">
+                  <span>■ ANALYST CONSOLE</span>
+                  <span className="animate-pulse">●</span>
+                </div>
+              </div>
+              
+              <div className="space-y-2 text-green-400 font-mono text-xs">
+                <div className="flex justify-between">
+                  <span>System:</span>
+                  <span className="text-blue-400">ONLINE</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Role:</span>
+                  <span className="text-yellow-400">DATA ANALYST</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Status:</span>
+                  <span className="text-green-400 animate-pulse">SEEKING</span>
+                </div>
+                <div className="border-t border-primary/20 pt-2 mt-2">
+                  <div className="text-xs text-muted-foreground">Skills Loading...</div>
+                  <div className="w-full bg-primary/20 rounded h-1 mt-1">
+                    <div className="bg-primary h-1 rounded animate-pulse" style={{width: '95%'}}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Floating Data Chips */}
+            <div className="absolute -top-4 -right-4 bg-primary/10 border border-primary/30 rounded px-2 py-1 text-xs font-mono text-primary animate-bounce">
+              SQL
+            </div>
+            <div className="absolute -bottom-4 -left-4 bg-accent/10 border border-accent/30 rounded px-2 py-1 text-xs font-mono text-accent animate-bounce" style={{animationDelay: '0.5s'}}>
+              Python
+            </div>
+            <div className="absolute top-1/2 -right-6 bg-secondary/10 border border-secondary/30 rounded px-2 py-1 text-xs font-mono text-secondary animate-bounce" style={{animationDelay: '1s'}}>
+              Tableau
+            </div>
           </div>
         </div>
 
-        {/* Text on the right */}
+        {/* Text Content */}
         <div className="w-2/3 text-center md:text-left">
           <p
             ref={(el) => (textElements.current[0] = el)}
