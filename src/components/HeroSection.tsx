@@ -50,65 +50,49 @@ const HeroSection = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-12 md:py-24">
-      {/* Background visuals */}
+      {/* Animated Background with Motion Graphics */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute inset-0 bg-hero-pattern opacity-0 transition-opacity duration-1000"></div>
-        <div className="absolute top-20 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-1"></div>
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-2"></div>
-        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-secondary/10 rounded-full blur-2xl opacity-0 transition-all duration-1500 bg-element-3"></div>
-      </div>
-
-      {/* Content container */}
-      <div className="container relative z-10 mx-auto flex flex-col md:flex-row items-center gap-16">
-        {/* Dashboard Console Interface */}
-        <div className="flex-shrink-0 w-1/3">
-          <div className="relative">
-            {/* Main Dashboard */}
-            <div className="bg-black/90 border border-primary/30 rounded-lg p-4 shadow-2xl shadow-primary/20">
-              <div className="border-b border-primary/20 pb-2 mb-4">
-                <div className="flex items-center justify-between text-green-400 font-mono text-xs">
-                  <span>■ ANALYST CONSOLE</span>
-                  <span className="animate-pulse">●</span>
-                </div>
-              </div>
-              
-              <div className="space-y-2 text-green-400 font-mono text-xs">
-                <div className="flex justify-between">
-                  <span>Experience:</span>
-                  <span className="text-blue-400">8+ MONTHS</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>GPA:</span>
-                  <span className="text-yellow-400">3.88/4.0</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Status:</span>
-                  <span className="text-green-400 animate-pulse">SEEKING BA/DA ROLES</span>
-                </div>
-                <div className="border-t border-primary/20 pt-2 mt-2">
-                  <div className="text-xs text-muted-foreground">Skills Expertise: 95%</div>
-                  <div className="w-full bg-primary/20 rounded h-1 mt-1">
-                    <div className="bg-primary h-1 rounded animate-pulse" style={{width: '95%'}}></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Floating Data Chips */}
-            <div className="absolute -top-4 -right-4 bg-primary/10 border border-primary/30 rounded px-2 py-1 text-xs font-mono text-primary animate-bounce">
-              SQL
-            </div>
-            <div className="absolute -bottom-4 -left-4 bg-accent/10 border border-accent/30 rounded px-2 py-1 text-xs font-mono text-accent animate-bounce" style={{animationDelay: '0.5s'}}>
-              Python
-            </div>
-            <div className="absolute top-1/2 -right-6 bg-secondary/10 border border-secondary/30 rounded px-2 py-1 text-xs font-mono text-secondary animate-bounce" style={{animationDelay: '1s'}}>
-              Tableau
-            </div>
+        
+        {/* Floating Data Elements */}
+        <div className="absolute top-20 left-10 animate-float">
+          <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 backdrop-blur-sm">
+            <div className="text-primary font-mono text-sm">SQL</div>
+          </div>
+        </div>
+        
+        <div className="absolute top-32 right-20 animate-float" style={{animationDelay: '1s'}}>
+          <div className="bg-accent/10 border border-accent/30 rounded-lg p-3 backdrop-blur-sm">
+            <div className="text-accent font-mono text-sm">Python</div>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-32 left-20 animate-float" style={{animationDelay: '2s'}}>
+          <div className="bg-secondary/10 border border-secondary/30 rounded-lg p-3 backdrop-blur-sm">
+            <div className="text-secondary font-mono text-sm">Tableau</div>
+          </div>
+        </div>
+        
+        <div className="absolute bottom-20 right-10 animate-float" style={{animationDelay: '3s'}}>
+          <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 backdrop-blur-sm">
+            <div className="text-primary font-mono text-sm">Power BI</div>
           </div>
         </div>
 
+        {/* Glowing Background Elements */}
+        <div className="absolute top-20 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-1"></div>
+        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-2"></div>
+        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-secondary/10 rounded-full blur-2xl opacity-0 transition-all duration-1500 bg-element-3"></div>
+        
+        {/* Moving Data Streams */}
+        <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-pulse"></div>
+        <div className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+      </div>
+
+      {/* Content container */}
+      <div className="container relative z-10 mx-auto text-center">
         {/* Text Content */}
-        <div className="w-2/3 text-center md:text-left">
+        <div className="max-w-4xl mx-auto">
           <p
             ref={(el) => (textElements.current[0] = el)}
             className="text-lg font-medium text-primary mb-4 opacity-0 -translate-y-10 transition-all duration-700 animate-float"
@@ -146,7 +130,7 @@ const HeroSection = () => {
 
           <div
             ref={(el) => (textElements.current[5] = el)}
-            className="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 opacity-0 -translate-y-10 transition-all duration-700"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 -translate-y-10 transition-all duration-700"
           >
             <Button 
               size="lg" 

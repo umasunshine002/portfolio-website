@@ -40,6 +40,25 @@ const experiences: ExperienceItem[] = [
     }
   },
   {
+    title: "Graduate Assistant",
+    company: "Eastern Michigan University",
+    location: "Ypsilanti, Michigan", 
+    period: "Aug 2024 – Dec 2024",
+    duration: "5 months",
+    description: [
+      "Assisted graduate students and faculty with research projects involving data analysis, statistical modeling, and computational problem-solving using Python and R.",
+      "Supported academic coursework by conducting data preprocessing, creating visualizations, and implementing machine learning algorithms for various research initiatives.",
+      "Collaborated on interdisciplinary projects requiring analysis of large datasets, contributing to research publications and academic presentations."
+    ],
+    tags: ["Python", "R", "Statistical Analysis", "Data Visualization", "Research", "Machine Learning"],
+    logoColor: "#228B22", 
+    impact: {
+      performance: 90,
+      efficiency: 85,
+      automation: 80
+    }
+  },
+  {
     title: "Associate Consultant",
     company: "Applied Information Sciences (AIS)",
     location: "Hyderabad, Telangana",
@@ -74,7 +93,29 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="py-20 bg-gradient-to-b from-background to-muted/20">
       <div className="container mx-auto px-4">
-        <h2 className="section-header text-center mb-16">Experience Dashboard</h2>
+        <h2 className="section-header text-center mb-16">Career Timeline Dashboard</h2>
+        
+        {/* Career Flow Visualization */}
+        <div className="max-w-4xl mx-auto mb-12">
+          <div className="relative">
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-primary via-accent to-secondary"></div>
+            {experiences.map((exp, index) => (
+              <div key={index} className="relative flex items-center mb-8">
+                <div className={`flex items-center w-full ${index % 2 === 0 ? 'flex-row' : 'flex-row-reverse'}`}>
+                  <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'text-left pl-8'}`}>
+                    <div className="bg-card/80 backdrop-blur-sm border border-primary/20 rounded-lg p-4 shadow-lg">
+                      <h3 className="font-bold text-lg" style={{ color: exp.logoColor }}>{exp.company}</h3>
+                      <p className="text-primary font-semibold">{exp.title}</p>
+                      <p className="text-sm text-muted-foreground">{exp.period}</p>
+                    </div>
+                  </div>
+                  <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full border-4 border-background z-10" style={{ backgroundColor: exp.logoColor }}></div>
+                  <div className="w-5/12"></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
         
         {/* System Status Bar */}
         <div className="max-w-6xl mx-auto mb-8">
@@ -92,7 +133,7 @@ const ExperienceSection = () => {
             </CardHeader>
             <CardContent className="p-3 font-mono text-xs">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div>$ total_experience: 8+ months</div>
+                <div>$ total_experience: 13+ months</div>
                 <div>$ active_projects: {experiences.length}</div>
                 <div>$ system_status: <span className="text-green-400 animate-pulse">ACTIVE</span></div>
               </div>

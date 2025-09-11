@@ -243,7 +243,9 @@ const AnalyticsProjects = () => {
                     <div>
                       <h4 className="font-semibold mb-3 text-sm uppercase tracking-wide text-primary flex items-center gap-2">
                         <Zap className="w-4 h-4" />
-                        Data Pipeline Architecture
+                        {index === 0 ? "Real-Time Streaming Architecture" : 
+                         index === 1 ? "ML Recommendation Pipeline" : 
+                         "E-commerce System Architecture"}
                       </h4>
                       {project.pipelineVisualization}
                     </div>
