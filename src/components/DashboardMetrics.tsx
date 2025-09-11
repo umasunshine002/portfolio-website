@@ -26,34 +26,34 @@ const DashboardMetrics = () => {
 
   const metrics = [
     {
-      title: "Data Projects",
-      value: "15+",
-      change: "+25%",
-      icon: Database,
-      color: "text-blue-500",
-      bgColor: "bg-blue-500/10"
-    },
-    {
-      title: "Dashboards Built",
-      value: "8",
-      change: "+100%",
-      icon: BarChart3,
-      color: "text-purple-500",
-      bgColor: "bg-purple-500/10"
-    },
-    {
-      title: "Analysis Accuracy",
-      value: "98.5%",
-      change: "+5.2%",
+      title: "GPA (MS CS)",
+      value: "3.88/4",
+      change: "Eastern Michigan University",
       icon: Target,
       color: "text-green-500",
       bgColor: "bg-green-500/10"
     },
     {
-      title: "Data Processing",
-      value: "1M+",
-      change: "+200%",
+      title: "Experience",
+      value: "8+ Mo",
+      change: "KBTS Technologies + AIS",
+      icon: Calendar,
+      color: "text-blue-500",
+      bgColor: "bg-blue-500/10"
+    },
+    {
+      title: "ML Accuracy",
+      value: "84%",
+      change: "Twitter Sentiment Analysis",
       icon: TrendingUp,
+      color: "text-purple-500",
+      bgColor: "bg-purple-500/10"
+    },
+    {
+      title: "Skills Mastered",
+      value: "25+",
+      change: "Python, SQL, Power BI & More",
+      icon: Database,
       color: "text-orange-500",
       bgColor: "bg-orange-500/10"
     }

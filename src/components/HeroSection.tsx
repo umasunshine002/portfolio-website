@@ -74,19 +74,19 @@ const HeroSection = () => {
               
               <div className="space-y-2 text-green-400 font-mono text-xs">
                 <div className="flex justify-between">
-                  <span>System:</span>
-                  <span className="text-blue-400">ONLINE</span>
+                  <span>Experience:</span>
+                  <span className="text-blue-400">8+ MONTHS</span>
                 </div>
                 <div className="flex justify-between">
-                  <span>Role:</span>
-                  <span className="text-yellow-400">DATA ANALYST</span>
+                  <span>GPA:</span>
+                  <span className="text-yellow-400">3.88/4.0</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Status:</span>
-                  <span className="text-green-400 animate-pulse">SEEKING</span>
+                  <span className="text-green-400 animate-pulse">SEEKING BA/DA ROLES</span>
                 </div>
                 <div className="border-t border-primary/20 pt-2 mt-2">
-                  <div className="text-xs text-muted-foreground">Skills Loading...</div>
+                  <div className="text-xs text-muted-foreground">Skills Expertise: 95%</div>
                   <div className="w-full bg-primary/20 rounded h-1 mt-1">
                     <div className="bg-primary h-1 rounded animate-pulse" style={{width: '95%'}}></div>
                   </div>
@@ -127,21 +127,21 @@ const HeroSection = () => {
             ref={(el) => (textElements.current[2] = el)}
             className="text-2xl md:text-3xl text-muted-foreground font-medium mb-8 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Data & Business Analyst | Dashboard Expert
+            Business & Data Analyst | MS in Computer Science
           </h2>
 
           <p
             ref={(el) => (textElements.current[3] = el)}
             className="text-lg mb-6 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Transforming raw data into actionable insights through advanced analytics, interactive dashboards, and strategic business intelligence. With expertise in data pipelines, visualization tools, and statistical analysis, I excel at uncovering trends and driving data-informed decision making.
+            Detail-oriented Business & Data Analyst with strong foundation in computer science and hands-on experience bridging technical solutions with business needs. Skilled in analyzing processes, building dashboards, and delivering actionable insights.
           </p>
 
           <p
             ref={(el) => (textElements.current[4] = el)}
             className="text-lg mb-10 opacity-0 -translate-y-10 transition-all duration-700"
           >
-           Currently seeking Business Analyst and Data Analyst opportunities where I can leverage my analytical skills, technical expertise, and passion for storytelling with data to drive organizational success.
+           Proven expertise in data pipelines, ML-ready datasets, automated workflows, and interactive dashboards using Python, SQL, Power BI, and cloud platforms (AWS, GCP).
           </p>
 
           <div

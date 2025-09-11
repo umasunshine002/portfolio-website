@@ -2,34 +2,67 @@ import { useEffect, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
-import { BarChart3, Database, TrendingUp, Brain } from "lucide-react";
+import { BarChart3, Database, TrendingUp, Brain, Code, Cloud, Wrench, Cpu } from "lucide-react";
 
 const SkillsSection = () => {
   const skillsRef = useRef<HTMLDivElement>(null);
   const chartRef = useRef<HTMLDivElement>(null);
 
+  // Skills from resume with accurate proficiency levels
   const analyticsSkills = [
     { name: "SQL & Database Management", level: 95, category: "Data Management" },
-    { name: "Python (Pandas, NumPy)", level: 90, category: "Programming" },
-    { name: "Data Visualization", level: 88, category: "Visualization" },
-    { name: "Statistical Analysis", level: 85, category: "Analytics" },
-    { name: "Business Intelligence Tools", level: 82, category: "BI Tools" },
-    { name: "ETL/Data Pipelines", level: 87, category: "Data Engineering" },
-    { name: "Excel Advanced Analytics", level: 93, category: "Analytics" },
-    { name: "Machine Learning", level: 78, category: "AI/ML" }
+    { name: "Python (Pandas, NumPy, Scikit-learn)", level: 92, category: "Programming" },
+    { name: "Power BI & Tableau", level: 88, category: "BI Tools" },
+    { name: "Statistical Analysis & ML", level: 85, category: "Analytics" },
+    { name: "ETL/Data Pipelines (Kafka, Spark)", level: 87, category: "Data Engineering" },
+    { name: "Cloud Platforms (AWS, GCP)", level: 83, category: "Cloud" },
+    { name: "Java & JavaScript", level: 80, category: "Programming" },
+    { name: "Docker & Terraform", level: 82, category: "DevOps" }
   ];
 
-  const tools = [
-    { name: "Power BI", category: "BI" },
-    { name: "Tableau", category: "BI" },
-    { name: "Looker Studio", category: "BI" },
-    { name: "Apache Spark", category: "Big Data" },
-    { name: "Kafka", category: "Streaming" },
-    { name: "MongoDB", category: "Database" },
-    { name: "AWS", category: "Cloud" },
-    { name: "GCP", category: "Cloud" },
-    { name: "dbt", category: "Data Tools" },
-    { name: "Kestra", category: "Orchestration" }
+  // Comprehensive tools and technologies from resume
+  const programmingLanguages = [
+    { name: "Python", category: "Programming", color: "#3776ab" },
+    { name: "SQL", category: "Database", color: "#336791" },
+    { name: "Java", category: "Programming", color: "#f89820" },
+    { name: "JavaScript", category: "Web Dev", color: "#f7df1e" },
+    { name: "C++", category: "Programming", color: "#00599c" }
+  ];
+
+  const databases = [
+    { name: "MySQL", category: "Relational", color: "#4479a1" },
+    { name: "PostgreSQL", category: "Relational", color: "#336791" },
+    { name: "MongoDB", category: "NoSQL", color: "#47a248" },
+    { name: "BigQuery", category: "Cloud", color: "#4285f4" }
+  ];
+
+  const frameworks = [
+    { name: "Django", category: "Web Framework", color: "#092e20" },
+    { name: "Flask", category: "Web Framework", color: "#000000" },
+    { name: "Streamlit", category: "Data Apps", color: "#ff4b4b" },
+    { name: "Pandas", category: "Data Analysis", color: "#150458" },
+    { name: "NumPy", category: "Scientific Computing", color: "#013243" },
+    { name: "Scikit-learn", category: "Machine Learning", color: "#f7931e" },
+    { name: "Keras", category: "Deep Learning", color: "#d00000" }
+  ];
+
+  const cloudAndDevOps = [
+    { name: "AWS", category: "Cloud Platform", color: "#ff9900" },
+    { name: "GCP", category: "Cloud Platform", color: "#4285f4" },
+    { name: "Docker", category: "Containerization", color: "#2496ed" },
+    { name: "Terraform", category: "Infrastructure", color: "#623ce4" },
+    { name: "Apache Kafka", category: "Streaming", color: "#231f20" },
+    { name: "Apache Spark", category: "Big Data", color: "#e25a1c" },
+    { name: "Kestra", category: "Orchestration", color: "#7c3aed" },
+    { name: "dbt", category: "Data Transform", color: "#ff694b" }
+  ];
+
+  const analyticsTools = [
+    { name: "Power BI", category: "Business Intelligence", color: "#f2c811" },
+    { name: "Tableau", category: "Data Visualization", color: "#e97627" },
+    { name: "Looker Studio", category: "Reporting", color: "#4285f4" },
+    { name: "Power Platform", category: "Automation", color: "#742774" },
+    { name: "Microsoft Office", category: "Productivity", color: "#d83b01" }
   ];
 
   useEffect(() => {
@@ -91,18 +124,18 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="py-20 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto px-4">
-        <h2 className="section-header text-center opacity-100 mb-16">Analytics & Data Skills</h2>
+        <h2 className="section-header text-center opacity-100 mb-16">Technical Skills & Expertise</h2>
         
         {/* Skills Proficiency Chart */}
         <div
           ref={chartRef}
-          className="grid md:grid-cols-2 gap-8 mb-16 opacity-0 translate-y-10 transition-all duration-700"
+          className="grid lg:grid-cols-2 gap-8 mb-16 opacity-0 translate-y-10 transition-all duration-700"
         >
           <Card className="card-hover">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <TrendingUp className="w-5 h-5 text-primary" />
-                Skills Proficiency
+                Core Skills Proficiency
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -124,20 +157,144 @@ const SkillsSection = () => {
             </CardContent>
           </Card>
 
+          {/* Technology Categories */}
+          <div className="space-y-6">
+            {/* Programming Languages */}
+            <Card className="card-hover">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <Code className="w-5 h-5 text-primary" />
+                  Programming Languages
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {programmingLanguages.map((lang, index) => (
+                    <Badge 
+                      key={index} 
+                      variant="outline" 
+                      className="transition-all duration-300 hover:scale-105"
+                      style={{ 
+                        backgroundColor: `${lang.color}15`, 
+                        borderColor: `${lang.color}50`,
+                        color: lang.color 
+                      }}
+                    >
+                      {lang.name}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Analytics & BI Tools */}
+            <Card className="card-hover">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 text-lg">
+                  <BarChart3 className="w-5 h-5 text-primary" />
+                  Analytics & BI Tools
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <div className="flex flex-wrap gap-2">
+                  {analyticsTools.map((tool, index) => (
+                    <Badge 
+                      key={index} 
+                      variant="outline" 
+                      className="transition-all duration-300 hover:scale-105"
+                      style={{ 
+                        backgroundColor: `${tool.color}15`, 
+                        borderColor: `${tool.color}50`,
+                        color: tool.color 
+                      }}
+                    >
+                      {tool.name}
+                    </Badge>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Additional Technology Categories */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {/* Databases */}
           <Card className="card-hover">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <BarChart3 className="w-5 h-5 text-primary" />
-                Tools & Technologies
+                <Database className="w-5 h-5 text-primary" />
+                Databases
               </CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="flex flex-wrap gap-2">
-                {tools.map((tool, index) => (
+              <div className="space-y-2">
+                {databases.map((db, index) => (
                   <Badge 
                     key={index} 
                     variant="outline" 
-                    className={`${getCategoryColor(tool.category)} transition-all duration-300 hover:scale-105`}
+                    className="w-full justify-center transition-all duration-300 hover:scale-105"
+                    style={{ 
+                      backgroundColor: `${db.color}15`, 
+                      borderColor: `${db.color}50`,
+                      color: db.color 
+                    }}
+                  >
+                    {db.name}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Frameworks & Libraries */}
+          <Card className="card-hover">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Wrench className="w-5 h-5 text-primary" />
+                Frameworks & Libraries
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                {frameworks.slice(0, 4).map((framework, index) => (
+                  <Badge 
+                    key={index} 
+                    variant="outline" 
+                    className="w-full justify-center transition-all duration-300 hover:scale-105"
+                    style={{ 
+                      backgroundColor: `${framework.color}15`, 
+                      borderColor: `${framework.color}50`,
+                      color: framework.color 
+                    }}
+                  >
+                    {framework.name}
+                  </Badge>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Cloud & DevOps */}
+          <Card className="card-hover">
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <Cloud className="w-5 h-5 text-primary" />
+                Cloud & DevOps
+              </CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div className="space-y-2">
+                {cloudAndDevOps.slice(0, 4).map((tool, index) => (
+                  <Badge 
+                    key={index} 
+                    variant="outline" 
+                    className="w-full justify-center transition-all duration-300 hover:scale-105"
+                    style={{ 
+                      backgroundColor: `${tool.color}15`, 
+                      borderColor: `${tool.color}50`,
+                      color: tool.color 
+                    }}
                   >
                     {tool.name}
                   </Badge>
