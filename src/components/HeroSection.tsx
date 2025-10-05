@@ -1,15 +1,25 @@
 import { Button } from "@/components/ui/button";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Code2, Database, Brain, BarChart3, Terminal, Github, Linkedin, Mail } from "lucide-react";
 
 const HeroSection = () => {
   const textElements = useRef<(HTMLParagraphElement | HTMLHeadingElement | HTMLDivElement | null)[]>([]);
+  const [typedText, setTypedText] = useState("");
+  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
+  
+  const roles = [
+    "Software Engineer",
+    "Data Engineer", 
+    "ML/AI Specialist",
+    "Business Analyst"
+  ];
 
   useEffect(() => {
     textElements.current.forEach((element, index) => {
       if (!element) return;
       setTimeout(() => {
         element.classList.add("opacity-100", "translate-y-0");
-      }, index * 200);
+      }, index * 150);
     });
 
     const bg1 = document.querySelector(".bg-element-1");
@@ -28,16 +38,45 @@ const HeroSection = () => {
       const x = e.clientX / window.innerWidth;
       const y = e.clientY / window.innerHeight;
 
-      if (bg1) (bg1 as HTMLElement).style.transform = `translate(${x * 20}px, ${y * 20}px)`;
-      if (bg2) (bg2 as HTMLElement).style.transform = `translate(${-x * 30}px, ${-y * 30}px)`;
-      if (bg3) (bg3 as HTMLElement).style.transform = `translate(${x * -15}px, ${y * 15}px) rotate(${x * 5}deg)`;
+      if (bg1) (bg1 as HTMLElement).style.transform = `translate(${x * 30}px, ${y * 30}px) scale(1.1)`;
+      if (bg2) (bg2 as HTMLElement).style.transform = `translate(${-x * 40}px, ${-y * 40}px) scale(1.1)`;
+      if (bg3) (bg3 as HTMLElement).style.transform = `translate(${x * -20}px, ${y * 20}px) rotate(${x * 10}deg)`;
     };
 
     window.addEventListener("mousemove", handleMouseMove);
     return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  // Add smooth scrolling function
+  // Typing animation for roles
+  useEffect(() => {
+    let currentText = "";
+    let charIndex = 0;
+    const currentRole = roles[currentRoleIndex];
+    
+    const typeInterval = setInterval(() => {
+      if (charIndex < currentRole.length) {
+        currentText += currentRole[charIndex];
+        setTypedText(currentText);
+        charIndex++;
+      } else {
+        clearInterval(typeInterval);
+        setTimeout(() => {
+          const deleteInterval = setInterval(() => {
+            if (currentText.length > 0) {
+              currentText = currentText.slice(0, -1);
+              setTypedText(currentText);
+            } else {
+              clearInterval(deleteInterval);
+              setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
+            }
+          }, 50);
+        }, 2000);
+      }
+    }, 100);
+
+    return () => clearInterval(typeInterval);
+  }, [currentRoleIndex]);
+
   const scrollToSection = (elementId: string) => {
     const element = document.getElementById(elementId);
     if (element) {
@@ -49,111 +88,169 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-12 md:py-24">
-      {/* Animated Background with Motion Graphics */}
+    <div className="min-h-screen flex items-center justify-center relative overflow-hidden px-4 py-20 md:py-32">
+      {/* Advanced Animated Background */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute inset-0 bg-hero-pattern opacity-0 transition-opacity duration-1000"></div>
+        {/* Grid overlay */}
+        <div className="absolute inset-0 bg-hero-pattern opacity-30"></div>
         
-        {/* Floating Data Elements */}
+        {/* Animated gradient orbs */}
+        <div className="absolute top-20 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl opacity-0 transition-all duration-2000 bg-element-1 animate-pulse-slight"></div>
+        <div className="absolute bottom-20 right-1/4 w-[500px] h-[500px] bg-accent/20 rounded-full blur-3xl opacity-0 transition-all duration-2000 bg-element-2 animate-pulse-slight"></div>
+        <div className="absolute top-1/3 right-1/3 w-80 h-80 bg-secondary/30 rounded-full blur-2xl opacity-0 transition-all duration-2000 bg-element-3 animate-float"></div>
+        
+        {/* Floating tech icons */}
         <div className="absolute top-20 left-10 animate-float">
-          <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 backdrop-blur-sm">
-            <div className="text-primary font-mono text-sm">SQL</div>
+          <div className="glass-card p-4 neon-glow">
+            <Database className="w-6 h-6 text-primary" />
           </div>
         </div>
         
         <div className="absolute top-32 right-20 animate-float" style={{animationDelay: '1s'}}>
-          <div className="bg-accent/10 border border-accent/30 rounded-lg p-3 backdrop-blur-sm">
-            <div className="text-accent font-mono text-sm">Python</div>
+          <div className="glass-card p-4 neon-glow">
+            <Brain className="w-6 h-6 text-accent" />
           </div>
         </div>
         
         <div className="absolute bottom-32 left-20 animate-float" style={{animationDelay: '2s'}}>
-          <div className="bg-secondary/10 border border-secondary/30 rounded-lg p-3 backdrop-blur-sm">
-            <div className="text-secondary font-mono text-sm">Tableau</div>
+          <div className="glass-card p-4 neon-glow">
+            <Code2 className="w-6 h-6 text-primary" />
           </div>
         </div>
         
         <div className="absolute bottom-20 right-10 animate-float" style={{animationDelay: '3s'}}>
-          <div className="bg-primary/10 border border-primary/30 rounded-lg p-3 backdrop-blur-sm">
-            <div className="text-primary font-mono text-sm">Power BI</div>
+          <div className="glass-card p-4 neon-glow">
+            <BarChart3 className="w-6 h-6 text-accent" />
           </div>
         </div>
 
-        {/* Glowing Background Elements */}
-        <div className="absolute top-20 left-1/4 w-80 h-80 bg-primary/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-1"></div>
-        <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl opacity-0 transition-all duration-1500 bg-element-2"></div>
-        <div className="absolute top-1/3 right-1/3 w-64 h-64 bg-secondary/10 rounded-full blur-2xl opacity-0 transition-all duration-1500 bg-element-3"></div>
-        
-        {/* Moving Data Streams */}
-        <div className="absolute top-1/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/30 to-transparent animate-pulse"></div>
-        <div className="absolute top-3/4 left-0 w-full h-1 bg-gradient-to-r from-transparent via-accent/30 to-transparent animate-pulse" style={{animationDelay: '1s'}}></div>
+        {/* Data flow lines */}
+        <div className="absolute top-1/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent data-flow"></div>
+        <div className="absolute top-2/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent data-flow" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-3/4 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent data-flow" style={{animationDelay: '2s'}}></div>
       </div>
 
-      {/* Content container */}
-      <div className="container relative z-10 mx-auto text-center">
-        {/* Text Content */}
-        <div className="max-w-4xl mx-auto">
-          <p
+      {/* Content */}
+      <div className="container relative z-10 mx-auto">
+        <div className="max-w-5xl mx-auto text-center space-y-8">
+          {/* Intro tag */}
+          <div
             ref={(el) => (textElements.current[0] = el)}
-            className="text-lg font-medium text-primary mb-4 opacity-0 -translate-y-10 transition-all duration-700 animate-float"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card border-primary/20 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Hello, I'm
-          </p>
+            <Terminal className="w-4 h-4 text-primary animate-pulse" />
+            <span className="text-sm font-medium text-muted-foreground">Available for opportunities</span>
+          </div>
 
+          {/* Name with gradient */}
           <h1
             ref={(el) => (textElements.current[1] = el)}
-            className="text-5xl md:text-6xl font-bold mb-6 opacity-0 -translate-y-10 transition-all duration-700 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent animate-gradient-x"
+            className="text-6xl md:text-8xl font-bold opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Umadevi Thulluru
+            <span className="gradient-text">Umadevi Thulluru</span>
           </h1>
 
-          <h2
+          {/* Dynamic typing role */}
+          <div
             ref={(el) => (textElements.current[2] = el)}
-            className="text-2xl md:text-3xl text-muted-foreground font-medium mb-8 opacity-0 -translate-y-10 transition-all duration-700"
+            className="h-12 md:h-16 opacity-0 -translate-y-10 transition-all duration-700"
           >
-            Business & Data Analyst | MS in Computer Science
-          </h2>
+            <p className="text-3xl md:text-4xl font-bold text-foreground">
+              {typedText}
+              <span className="typing-cursor text-primary"></span>
+            </p>
+          </div>
 
+          {/* Tagline */}
           <p
             ref={(el) => (textElements.current[3] = el)}
-            className="text-lg mb-6 opacity-0 -translate-y-10 transition-all duration-700"
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto opacity-0 -translate-y-10 transition-all duration-700 leading-relaxed"
           >
-            Detail-oriented Business & Data Analyst with strong foundation in computer science and hands-on experience bridging technical solutions with business needs. Skilled in analyzing processes, building dashboards, and delivering actionable insights.
+            Building scalable ML systems, end-to-end data pipelines, and actionable analytics solutions.
+            <br />
+            <span className="text-primary font-semibold">MS in Computer Science</span> with{" "}
+            <span className="text-accent font-semibold">3.88 GPA</span>
           </p>
 
-          <p
+          {/* Stats bar */}
+          <div
             ref={(el) => (textElements.current[4] = el)}
-            className="text-lg mb-10 opacity-0 -translate-y-10 transition-all duration-700"
+            className="flex flex-wrap justify-center gap-6 md:gap-8 py-6 opacity-0 -translate-y-10 transition-all duration-700"
           >
-           Proven expertise in data pipelines, ML-ready datasets, automated workflows, and interactive dashboards using Python, SQL, Power BI, and cloud platforms (AWS, GCP).
-          </p>
+            <div className="glass-card px-6 py-4 rounded-xl">
+              <div className="text-3xl font-bold gradient-text">3.88</div>
+              <div className="text-xs text-muted-foreground mt-1">GPA</div>
+            </div>
+            <div className="glass-card px-6 py-4 rounded-xl">
+              <div className="text-3xl font-bold gradient-text">1M+</div>
+              <div className="text-xs text-muted-foreground mt-1">Events Processed</div>
+            </div>
+            <div className="glass-card px-6 py-4 rounded-xl">
+              <div className="text-3xl font-bold gradient-text">40%</div>
+              <div className="text-xs text-muted-foreground mt-1">Efficiency Boost</div>
+            </div>
+            <div className="glass-card px-6 py-4 rounded-xl">
+              <div className="text-3xl font-bold gradient-text">84%</div>
+              <div className="text-xs text-muted-foreground mt-1">ML Accuracy</div>
+            </div>
+          </div>
 
+          {/* CTAs */}
           <div
             ref={(el) => (textElements.current[5] = el)}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 opacity-0 -translate-y-10 transition-all duration-700"
           >
             <Button 
               size="lg" 
-              className="relative overflow-hidden group animate-pulse-subtle"
+              className="relative overflow-hidden group px-8 py-6 text-lg neon-glow"
               onClick={() => scrollToSection("projects")}
             >
-              <span className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary to-accent opacity-50 group-hover:opacity-70 transition-opacity"></span>
-              <span className="relative z-10">
-                View Analytics Projects
+              <span className="relative z-10 flex items-center gap-2">
+                <BarChart3 className="w-5 h-5" />
+                View Projects
               </span>
             </Button>
 
             <Button 
               size="lg" 
               variant="outline" 
-              className="relative overflow-hidden group"
+              className="relative overflow-hidden group px-8 py-6 text-lg border-primary/30 hover:border-primary"
               onClick={() => scrollToSection("contact")}
             >
-              <span className="absolute inset-0 w-0 bg-gradient-to-r from-primary to-accent opacity-20 group-hover:w-full transition-all duration-300"></span>
-              <span className="relative z-10">
+              <span className="relative z-10 flex items-center gap-2">
+                <Mail className="w-5 h-5" />
                 Get In Touch
               </span>
             </Button>
+          </div>
+
+          {/* Social links */}
+          <div
+            ref={(el) => (textElements.current[6] = el)}
+            className="flex items-center justify-center gap-4 opacity-0 -translate-y-10 transition-all duration-700"
+          >
+            <a 
+              href="https://github.com/Umadevithulluru" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="glass-card p-3 rounded-full hover:scale-110 transition-transform neon-glow"
+            >
+              <Github className="w-5 h-5 text-foreground" />
+            </a>
+            <a 
+              href="https://www.linkedin.com/in/umadevithulluru/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="glass-card p-3 rounded-full hover:scale-110 transition-transform neon-glow"
+            >
+              <Linkedin className="w-5 h-5 text-foreground" />
+            </a>
+            <a 
+              href="mailto:umathulluru02@gmail.com"
+              className="glass-card p-3 rounded-full hover:scale-110 transition-transform neon-glow"
+            >
+              <Mail className="w-5 h-5 text-foreground" />
+            </a>
           </div>
         </div>
       </div>

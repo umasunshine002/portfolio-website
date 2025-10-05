@@ -86,24 +86,28 @@
 
 @layer components {
   .tech-tag {
-    @apply bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-medium border border-transparent transition-all duration-300 hover:border-primary/30;
+    @apply bg-primary/10 text-primary rounded-full px-3 py-1 text-xs font-medium border border-transparent transition-all duration-300 hover:border-primary/30 hover:scale-105 hover:shadow-lg hover:shadow-primary/20;
   }
 
   .gradient-text {
-    @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradientX 8s ease infinite;
   }
   
   .section-header {
-    @apply text-3xl font-bold mb-8 relative gradient-text inline-block;
+    @apply text-4xl md:text-5xl font-bold mb-12 relative gradient-text inline-block;
   }
   
   .section-header::after {
     content: '';
-    @apply block w-full h-1 bg-gradient-to-r from-primary to-accent mt-2 rounded;
+    @apply block w-full h-1 bg-gradient-to-r from-primary via-accent to-primary mt-3 rounded;
+    background-size: 200% auto;
+    animation: gradientX 8s ease infinite;
   }
   
   .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:shadow-primary/10 border border-border hover:border-primary/20;
+    @apply transition-all duration-500 hover:shadow-2xl hover:shadow-primary/20 border border-border hover:border-primary/40 hover:-translate-y-2;
   }
   
   .animate-fade-up {
@@ -116,7 +120,7 @@
   }
   
   .animate-float {
-    animation: float 4s ease-in-out infinite;
+    animation: float 6s ease-in-out infinite;
   }
   
   .animate-gradient-x {
@@ -129,6 +133,24 @@
     top: 50%;
     left: 0;
     animation: shootingStar 6s linear infinite;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-xl bg-card/50 border border-primary/10 rounded-xl;
+  }
+
+  .neon-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3);
+  }
+
+  .data-flow {
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.2), transparent);
+    animation: dataFlow 2s linear infinite;
+  }
+
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s infinite;
   }
 }
 
@@ -197,6 +219,57 @@
     opacity: 0;
     transform: translate(0, 0) rotate(215deg);
     width: 0;
+  }
+}
+
+@keyframes dataFlow {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
