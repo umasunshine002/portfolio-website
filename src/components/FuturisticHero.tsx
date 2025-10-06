@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Mail, ArrowDown, Terminal, Cpu } from "lucide-react";
 import ParticleBackground from "./ParticleBackground";
-import LiveStatusPanel from "./LiveStatusPanel";
 
 const FuturisticHero = () => {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -192,14 +191,31 @@ const FuturisticHero = () => {
             <span className="text-[hsl(var(--cyber-blue))] font-semibold">enterprise engineering</span>.
           </motion.p>
 
-          {/* Live Status Panel */}
+          {/* Stats grid */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9 }}
-            className="my-12"
+            className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto my-12"
           >
-            <LiveStatusPanel />
+            {[
+              { label: "GPA", value: "3.88", icon: "🎓" },
+              { label: "Events/Day", value: "1M+", icon: "⚡" },
+              { label: "ML Accuracy", value: "84%", icon: "🤖" },
+              { label: "Efficiency", value: "+40%", icon: "📊" }
+            ].map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1 + index * 0.1 }}
+                className="glass-card neon-border p-6 rounded-2xl hover:scale-105 transition-transform"
+              >
+                <div className="text-4xl mb-2">{stat.icon}</div>
+                <div className="text-3xl font-bold gradient-text">{stat.value}</div>
+                <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* CTAs */}
