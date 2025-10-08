@@ -1,44 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Mail, ArrowDown, Terminal, Cpu } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowDown, Terminal, Cpu, Brain, Sparkles } from "lucide-react";
 import ParticleBackground from "./ParticleBackground";
-import LiveStatusPanel from "./LiveStatusPanel";
 
 const FuturisticHero = () => {
-  const [roleIndex, setRoleIndex] = useState(0);
-  const [displayText, setDisplayText] = useState("");
-  const [isDeleting, setIsDeleting] = useState(false);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  const roles = [
-    "Software Engineer",
-    "Data Engineer",
-    "AI Innovator",
-    "ML Researcher"
-  ];
-
-  // Typing animation effect
-  useEffect(() => {
-    const currentRole = roles[roleIndex];
-    const updateText = () => {
-      if (!isDeleting) {
-        setDisplayText(currentRole.substring(0, displayText.length + 1));
-        if (displayText === currentRole) {
-          setTimeout(() => setIsDeleting(true), 2000);
-        }
-      } else {
-        setDisplayText(currentRole.substring(0, displayText.length - 1));
-        if (displayText === "") {
-          setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % roles.length);
-        }
-      }
-    };
-
-    const timer = setTimeout(updateText, isDeleting ? 50 : 150);
-    return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex]);
 
   // Neural network canvas animation
   useEffect(() => {
@@ -157,49 +124,74 @@ const FuturisticHero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <h1 className="text-6xl md:text-8xl font-bold mb-4">
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
               <span className="gradient-text" style={{ textShadow: "0 0 40px hsl(var(--cyber-blue) / 0.5)" }}>
-                Umadevi Thulluru
+                Exploring Intelligence, Data, and Design.
               </span>
             </h1>
           </motion.div>
 
-          {/* Dynamic role typing */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="h-20 flex items-center justify-center"
-          >
-            <h2 className="text-3xl md:text-5xl font-bold text-foreground">
-              <span className="text-[hsl(var(--cyber-blue))]">&lt;</span>
-              {displayText}
-              <span className="typing-cursor" />
-              <span className="text-[hsl(var(--cyber-blue))]">&gt;</span>
-            </h2>
-          </motion.div>
-
-          {/* Tagline */}
+          {/* Subheadline */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed"
+            transition={{ delay: 0.5 }}
+            className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-16"
           >
-            Building intelligent, <span className="text-[hsl(var(--cyber-violet))] font-semibold">data-driven systems</span> that scale.
-            <br />
-            Merging <span className="text-[hsl(var(--neon-glow))] font-semibold">AI/ML</span> innovation with{" "}
-            <span className="text-[hsl(var(--cyber-blue))] font-semibold">enterprise engineering</span>.
+            Transforming systems, data, and algorithms into real-world intelligence.
           </motion.p>
 
-          {/* Live Status Panel */}
+          {/* Passion Pillars */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9 }}
-            className="my-12"
+            transition={{ delay: 0.7 }}
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16"
           >
-            <LiveStatusPanel />
+            {[
+              {
+                icon: Brain,
+                title: "Artificial Intelligence & Deep Learning",
+                subtitle: "Turning data into understanding.",
+                color: "hsl(var(--cyber-blue))"
+              },
+              {
+                icon: Cpu,
+                title: "Systems & Operating Concepts",
+                subtitle: "Engineering control from the ground up.",
+                color: "hsl(var(--cyber-violet))"
+              },
+              {
+                icon: Terminal,
+                title: "Data Engineering & Cloud Infrastructure",
+                subtitle: "Bridging raw data to decision systems.",
+                color: "hsl(var(--neon-glow))"
+              },
+              {
+                icon: Sparkles,
+                title: "Creative Technology & Innovation",
+                subtitle: "Designing at the edge of intelligence.",
+                color: "hsl(200 100% 50%)"
+              }
+            ].map((pillar, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.9 + index * 0.1 }}
+                whileHover={{ scale: 1.05, y: -5 }}
+                className="glass-card p-6 rounded-2xl neon-border group cursor-pointer"
+              >
+                <div 
+                  className="w-12 h-12 rounded-xl mb-4 flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                  style={{ backgroundColor: `${pillar.color}20` }}
+                >
+                  <pillar.icon className="w-6 h-6" style={{ color: pillar.color }} />
+                </div>
+                <h3 className="text-lg font-bold mb-2 gradient-text">{pillar.title}</h3>
+                <p className="text-sm text-muted-foreground">{pillar.subtitle}</p>
+              </motion.div>
+            ))}
           </motion.div>
 
           {/* CTAs */}

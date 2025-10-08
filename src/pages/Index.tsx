@@ -1,9 +1,9 @@
 import Navbar from "@/components/Navbar";
 import FuturisticHero from "@/components/FuturisticHero";
 import AboutSection from "@/components/AboutSection";
-import SkillsSection from "@/components/SkillsSection";
-import ProjectConstellation from "@/components/ProjectConstellation";
-import ThreeActStory from "@/components/ThreeActStory";
+import WorkflowArchitecture from "@/components/WorkflowArchitecture";
+import InteractiveProjects from "@/components/InteractiveProjects";
+import CareerRoadmap from "@/components/CareerRoadmap";
 import ContactHub from "@/components/ContactHub";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
@@ -11,11 +11,11 @@ import { useEffect } from "react";
 const Index = () => {
   useEffect(() => {
     // Update document title and meta tags
-    document.title = "Umadevi Thulluru | Interactive Developer Atelier — AI • ML • Data Engineering";
+    document.title = "Uma Devi Thulluru | AI Engineer • Data Engineer • Software Developer";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Interactive developer portfolio of Umadevi Thulluru - An immersive studio showcasing intelligent systems, real-time pipelines, ML models, and production-grade infrastructure. Explore the Project Constellation.');
+      metaDescription.setAttribute('content', 'Exploring Intelligence, Data, and Design. Uma Devi Thulluru\'s portfolio showcasing expertise in AI/ML, data engineering, cloud infrastructure, and intelligent system development.');
     }
   }, []);
 
@@ -24,10 +24,10 @@ const Index = () => {
       <Navbar />
       <main className="relative">
         <FuturisticHero />
-        <ThreeActStory />
         <AboutSection />
-        <SkillsSection />
-        <ProjectConstellation />
+        <WorkflowArchitecture />
+        <InteractiveProjects />
+        <CareerRoadmap />
         <ContactHub />
       </main>
       <Footer />
