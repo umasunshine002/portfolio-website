@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
-import { Mail, Linkedin } from "lucide-react";
+import { Mail, Linkedin, Terminal } from "lucide-react";
+import { useState } from "react";
 
 const ContactHub = () => {
+  const [terminalText, setTerminalText] = useState("");
+  const email = "umathulluru02@gmail.com";
+
+  const handleTerminalClick = (text: string) => {
+    setTerminalText(text);
+    setTimeout(() => setTerminalText(""), 2000);
+  };
+
   return (
     <section id="contact" className="relative py-32 overflow-hidden">
       {/* Background effects */}
@@ -17,37 +26,62 @@ const ContactHub = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <h2 className="section-header mb-12">Let's Connect</h2>
+          <h2 className="section-header mb-12">Connect</h2>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-8 mb-16">
-            <motion.a
-              href="https://www.linkedin.com/in/umadevithulluru/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="group"
-            >
-              <Card className="glass-card neon-border p-8 hover:neon-glow transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-[hsl(var(--cyber-blue))]20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <Linkedin className="w-8 h-8 text-[hsl(var(--cyber-blue))]" />
+          {/* Terminal-style contact box */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="glass-card neon-border rounded-2xl overflow-hidden mb-8"
+          >
+            <div className="bg-[hsl(var(--card))] border-b border-[hsl(var(--cyber-blue))] px-4 py-2 flex items-center gap-2">
+              <Terminal className="w-4 h-4 text-[hsl(var(--cyber-blue))]" />
+              <span className="font-mono text-sm text-[hsl(var(--cyber-blue))]">contact.sh</span>
+            </div>
+            
+            <div className="p-8 font-mono text-sm text-left">
+              <div className="mb-2">
+                <span className="text-[hsl(var(--neon-glow))]">$</span>
+                <span className="text-muted-foreground"> cat contact.info</span>
+              </div>
+              <div className="space-y-4 mt-4">
+                <div className="flex items-center gap-3">
+                  <Linkedin className="w-5 h-5 text-[hsl(var(--cyber-blue))]" />
+                  <a 
+                    href="https://www.linkedin.com/in/umadevithulluru/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => handleTerminalClick("Opening LinkedIn...")}
+                    className="text-[hsl(var(--cyber-blue))] hover:underline"
+                  >
+                    linkedin.com/in/umadevithulluru
+                  </a>
                 </div>
-                <p className="text-xl font-bold gradient-text">LinkedIn</p>
-              </Card>
-            </motion.a>
-
-            <motion.a
-              href="mailto:umathulluru02@gmail.com"
-              whileHover={{ scale: 1.1, y: -5 }}
-              className="group"
-            >
-              <Card className="glass-card neon-border p-8 hover:neon-glow transition-all duration-300">
-                <div className="w-16 h-16 rounded-2xl bg-[hsl(var(--cyber-violet))]20 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                  <Mail className="w-8 h-8 text-[hsl(var(--cyber-violet))]" />
+                <div className="flex items-center gap-3">
+                  <Mail className="w-5 h-5 text-[hsl(var(--cyber-violet))]" />
+                  <a 
+                    href={`mailto:${email}`}
+                    onClick={() => handleTerminalClick("Composing email...")}
+                    className="text-[hsl(var(--cyber-violet))] hover:underline"
+                  >
+                    {email}
+                  </a>
                 </div>
-                <p className="text-xl font-bold gradient-text">Email</p>
-              </Card>
-            </motion.a>
-          </div>
+              </div>
+              {terminalText && (
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  className="mt-4 text-[hsl(var(--neon-glow))]"
+                >
+                  {terminalText}
+                  <span className="animate-pulse">_</span>
+                </motion.div>
+              )}
+            </div>
+          </motion.div>
 
           <motion.p
             initial={{ opacity: 0 }}

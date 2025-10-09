@@ -118,17 +118,22 @@ const FuturisticHero = () => {
             </span>
           </motion.div>
 
-          {/* Main heading */}
+          {/* Main heading with highlighted name */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
           >
-            <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              <span className="gradient-text" style={{ textShadow: "0 0 40px hsl(var(--cyber-blue) / 0.5)" }}>
-                Exploring Intelligence, Data, and Design.
+            <h1 className="text-6xl md:text-8xl font-bold mb-4">
+              <span className="text-foreground" style={{ textShadow: "0 0 60px hsl(var(--cyber-blue) / 0.7)" }}>
+                Uma Devi Thulluru
               </span>
             </h1>
+            <p className="text-xl md:text-3xl font-semibold mb-6">
+              <span className="gradient-text">
+                Engineering intelligence, one neural spark at a time.
+              </span>
+            </p>
           </motion.div>
 
           {/* Subheadline */}
@@ -136,9 +141,9 @@ const FuturisticHero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
-            className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-16"
+            className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed mb-16"
           >
-            Transforming systems, data, and algorithms into real-world intelligence.
+            Computer Science Engineer passionate about crafting intelligent, data-driven systems that bridge AI, software, and creativity.
           </motion.p>
 
           {/* Passion Pillars */}
@@ -151,25 +156,25 @@ const FuturisticHero = () => {
             {[
               {
                 icon: Brain,
-                title: "Artificial Intelligence & Deep Learning",
+                title: "AI & Machine Learning",
                 subtitle: "Turning data into understanding.",
                 color: "hsl(var(--cyber-blue))"
               },
               {
                 icon: Cpu,
-                title: "Systems & Operating Concepts",
-                subtitle: "Engineering control from the ground up.",
+                title: "Data Engineering & Cloud Systems",
+                subtitle: "Bridging raw data to decision systems.",
                 color: "hsl(var(--cyber-violet))"
               },
               {
                 icon: Terminal,
-                title: "Data Engineering & Cloud Infrastructure",
-                subtitle: "Bridging raw data to decision systems.",
+                title: "Software Development & OS Projects",
+                subtitle: "Engineering control from the ground up.",
                 color: "hsl(var(--neon-glow))"
               },
               {
                 icon: Sparkles,
-                title: "Creative Technology & Innovation",
+                title: "Creative Tech & Automation",
                 subtitle: "Designing at the edge of intelligence.",
                 color: "hsl(200 100% 50%)"
               }
@@ -207,20 +212,9 @@ const FuturisticHero = () => {
               className="group relative overflow-hidden px-8 py-6 text-lg neon-glow bg-[hsl(var(--cyber-blue))] hover:bg-[hsl(var(--cyber-blue))] border-2 border-[hsl(var(--cyber-blue))]"
             >
               <span className="relative z-10 flex items-center gap-2">
-                <Cpu className="w-5 h-5" />
-                View Projects
+                Explore My Work ↓
               </span>
               <div className="absolute inset-0 bg-gradient-to-r from-[hsl(var(--cyber-blue))] via-[hsl(var(--cyber-violet))] to-[hsl(var(--neon-glow))] opacity-0 group-hover:opacity-100 transition-opacity" />
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              onClick={() => scrollToSection("contact")}
-              className="px-8 py-6 text-lg border-2 border-[hsl(var(--cyber-blue))] text-[hsl(var(--cyber-blue))] hover:bg-[hsl(var(--cyber-blue))]/10"
-            >
-              <Mail className="w-5 h-5 mr-2" />
-              Get In Touch
             </Button>
           </motion.div>
 
