@@ -8,9 +8,9 @@ const JourneyPhases = () => {
       title: "Foundation",
       color: "hsl(var(--cyber-blue))",
       items: [
-        "🧠 Built from scratch: bootloaders, kernels, memory managers (x86 Assembly)",
-        "⚙️ Low-level systems thinking → high-level AI architecture",
-        "📚 Studied systems, algorithms, and machine intelligence"
+        "Built x86 OS from scratch — bootloader, protected mode, BIOS interrupts",
+        "Mastered C, C++, Assembly, Python — systems thinking to AI architecture",
+        "Studied algorithms, data structures, OS fundamentals, and machine learning"
       ]
     },
     {
@@ -18,9 +18,9 @@ const JourneyPhases = () => {
       title: "Build",
       color: "hsl(var(--cyber-violet))",
       items: [
-        "🔧 Real-time pipelines: Kafka, Spark, Airflow, Terraform",
-        "🤖 ML models: CNNs, NLP, transformers, sentiment analysis",
-        "☁️ Cloud-native: AWS, GCP, Docker, microservices"
+        "Real-time pipelines: Kafka + Spark streaming, Kestra, dbt, Terraform on GCP",
+        "ML/AI: CNNs for facial recognition, NLP transformers, sentiment analysis at scale",
+        "Full-stack: Django + React dashboards, MySQL/MongoDB, Docker microservices"
       ]
     },
     {
@@ -28,18 +28,18 @@ const JourneyPhases = () => {
       title: "Launch",
       color: "hsl(var(--neon-glow))",
       items: [
-        "🚀 Shipped production systems at scale",
-        "💡 Open-source contributions & research",
-        "🌐 Building intelligent, human-centered products"
+        "Data Engineer Intern @ KBTS — automated GCP pipelines, Looker dashboards",
+        "Graduate Assistant @ EMU — Python automation, Flask apps, 50% efficiency boost",
+        "Associate Consultant @ AIS — Power Platform automation, Java Swing UIs"
       ]
     }
   ];
 
   return (
-    <section id="journey" className="relative py-32 overflow-hidden">
+    <section id="journey" className="relative py-20 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-[hsl(var(--cyber-violet))] rounded-full blur-3xl opacity-10 animate-pulse" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[hsl(var(--cyber-violet))] rounded-full blur-3xl opacity-5 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -47,50 +47,51 @@ const JourneyPhases = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-12"
         >
-          <h2 className="section-header mb-4">My Journey</h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">My Journey</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             From low-level systems to intelligent applications
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {phases.map((phase, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.6 }}
+              transition={{ delay: index * 0.15, duration: 0.5 }}
               className="relative"
             >
-              <div className="glass-card neon-border p-8 rounded-2xl hover:neon-glow transition-all duration-300">
+              <div className="glass-card neon-border p-6 rounded-2xl hover:neon-glow transition-all duration-300">
                 <div 
-                  className="w-16 h-16 rounded-2xl mb-6 flex items-center justify-center mx-auto"
+                  className="w-14 h-14 rounded-xl mb-4 flex items-center justify-center mx-auto"
                   style={{ backgroundColor: `${phase.color}20` }}
                 >
-                  <phase.icon className="w-8 h-8" style={{ color: phase.color }} />
+                  <phase.icon className="w-7 h-7" style={{ color: phase.color }} />
                 </div>
                 
                 <h3 
-                  className="text-3xl font-bold text-center mb-8"
+                  className="text-2xl font-bold text-center mb-6"
                   style={{ color: phase.color }}
                 >
                   {phase.title}
                 </h3>
                 
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {phase.items.map((item, i) => (
                     <motion.div
                       key={i}
-                      initial={{ opacity: 0, x: -20 }}
+                      initial={{ opacity: 0, x: -10 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
-                      transition={{ delay: index * 0.2 + i * 0.1 }}
-                      className="text-sm text-muted-foreground leading-relaxed"
+                      transition={{ delay: index * 0.15 + i * 0.1 }}
+                      className="text-sm text-muted-foreground leading-relaxed flex items-start gap-2"
                     >
-                      {item}
+                      <span className="text-[10px] mt-1.5" style={{ color: phase.color }}>●</span>
+                      <span>{item}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -98,13 +99,13 @@ const JourneyPhases = () => {
 
               {/* Connecting arrow */}
               {index < phases.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-4 transform -translate-y-1/2 z-10">
+                <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    transition={{ delay: index * 0.2 + 0.5 }}
-                    className="text-4xl"
+                    transition={{ delay: index * 0.15 + 0.4 }}
+                    className="text-3xl"
                     style={{ color: phase.color }}
                   >
                     →

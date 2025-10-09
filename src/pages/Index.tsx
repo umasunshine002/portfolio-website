@@ -22,7 +22,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#0E121B] via-[#1A1F2E] to-[#0E121B] text-foreground overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-[#1A1F2E] via-[#252B3D] to-[#1A1F2E] text-foreground overflow-x-hidden">
       <Navbar />
       <main className="relative">
         <FuturisticHero />

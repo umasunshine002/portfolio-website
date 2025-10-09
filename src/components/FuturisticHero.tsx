@@ -81,7 +81,7 @@ const FuturisticHero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#0E121B] via-[#1A1F2E] to-[#0E121B]">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#1A1F2E] via-[#252B3D] to-[#1A1F2E]">
       {/* Neural network background */}
       <canvas ref={canvasRef} className="absolute inset-0 z-0" />
       
@@ -126,12 +126,12 @@ const FuturisticHero = () => {
           >
             <h1 className="text-6xl md:text-8xl font-bold mb-4">
               <span className="text-foreground" style={{ textShadow: "0 0 60px hsl(var(--cyber-blue) / 0.7)" }}>
-                Uma Devi Thulluru
+                Umadevi Thulluru
               </span>
             </h1>
             <p className="text-xl md:text-3xl font-semibold mb-6">
               <span className="gradient-text">
-                Engineering intelligence, one neural spark at a time.
+                Turning caffeine and code into intelligent systems.
               </span>
             </p>
           </motion.div>
