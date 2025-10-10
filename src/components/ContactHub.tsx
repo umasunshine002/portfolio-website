@@ -13,10 +13,10 @@ const ContactHub = () => {
   };
 
   return (
-    <section id="contact" className="relative py-16 overflow-hidden bg-gradient-to-b from-[hsl(var(--background))] to-black">
-      {/* Terminal-style background */}
-      <div className="absolute inset-0 circuit-pattern opacity-5" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-[hsl(var(--cyber-blue))] via-[hsl(var(--cyber-violet))] to-[hsl(var(--neon-glow))] rounded-full blur-3xl opacity-5 animate-pulse" />
+    <section id="contact" className="relative py-16 overflow-hidden">
+      {/* Background effects matching hero */}
+      <div className="absolute inset-0 circuit-pattern opacity-10" />
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-r from-[hsl(var(--cyber-blue))] via-[hsl(var(--cyber-violet))] to-[hsl(var(--neon-glow))] rounded-full blur-3xl opacity-10 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -34,18 +34,14 @@ const ContactHub = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass-card rounded-xl overflow-hidden mb-6 border-2"
-            style={{ 
-              borderColor: "hsl(var(--cyber-blue))",
-              boxShadow: "0 0 20px hsl(var(--cyber-blue) / 0.3)"
-            }}
+            className="glass-card neon-border rounded-xl overflow-hidden mb-6"
           >
-            <div className="bg-black/60 border-b-2 border-[hsl(var(--cyber-blue))] px-4 py-2 flex items-center gap-2">
+            <div className="bg-[hsl(var(--card))] border-b border-[hsl(var(--cyber-blue))]/40 px-4 py-2 flex items-center gap-2">
               <Terminal className="w-4 h-4 text-[hsl(var(--cyber-blue))]" />
-              <span className="font-mono text-xs text-[hsl(var(--cyber-blue))] font-bold">contact.sh</span>
+              <span className="font-mono text-xs text-[hsl(var(--cyber-blue))]">contact.sh</span>
             </div>
             
-            <div className="p-6 font-mono text-sm text-left bg-black/40">
+            <div className="p-6 font-mono text-sm text-left">
               <div className="mb-1">
                 <span className="text-[hsl(var(--neon-glow))]">$</span>
                 <span className="text-muted-foreground"> cat contact.info</span>

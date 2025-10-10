@@ -40,9 +40,8 @@ const CareerRoadmap = () => {
 
   return (
     <section id="experience" className="relative py-16 overflow-hidden">
-      {/* Unified background matching hero */}
+      {/* Background effects matching hero */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--cyber-blue))]/5 to-[hsl(var(--background))]" />
       <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-gradient-to-l from-[hsl(var(--cyber-blue))] to-transparent rounded-full blur-3xl opacity-10 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">

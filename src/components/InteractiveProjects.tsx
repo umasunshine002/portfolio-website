@@ -74,9 +74,8 @@ const InteractiveProjects = () => {
 
   return (
     <section id="projects" className="relative py-16 overflow-hidden">
-      {/* Unified background matching hero */}
+      {/* Background effects matching hero */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--neon-glow))]/5 to-[hsl(var(--background))]" />
       <div className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[hsl(var(--neon-glow))] via-transparent to-[hsl(var(--cyber-violet))] rounded-full blur-3xl opacity-10 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">
@@ -163,18 +162,15 @@ const InteractiveProjects = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
             onClick={() => setSelectedProject(null)}
-            className="fixed inset-0 bg-black/90 backdrop-blur-lg z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4"
           >
             <motion.div
-              initial={{ scale: 0.9, opacity: 0, y: 30 }}
+              initial={{ scale: 0.92, opacity: 0, y: 20 }}
               animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.9, opacity: 0, y: 30 }}
-              transition={{ 
-                duration: 0.35, 
-                ease: [0.16, 1, 0.3, 1]
-              }}
+              exit={{ scale: 0.92, opacity: 0, y: 20 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
               onClick={(e) => e.stopPropagation()}
               className="glass-card neon-glow rounded-2xl p-6 md:p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative"
             >

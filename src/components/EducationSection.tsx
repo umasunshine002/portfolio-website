@@ -22,9 +22,8 @@ const EducationSection = () => {
 
   return (
     <section id="education" className="relative py-16 overflow-hidden">
-      {/* Unified background matching hero */}
+      {/* Background effects matching hero */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--background))] via-[hsl(var(--neon-glow))]/5 to-[hsl(var(--background))]" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-r from-[hsl(var(--neon-glow))] to-transparent rounded-full blur-3xl opacity-10 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">

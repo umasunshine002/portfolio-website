@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import FuturisticHero from "@/components/FuturisticHero";
-import HorizontalJourney from "@/components/HorizontalJourney";
-import TechFlowMap from "@/components/TechFlowMap";
+import JourneyPhases from "@/components/JourneyPhases";
+import WorkflowArchitecture from "@/components/WorkflowArchitecture";
 import InteractiveProjects from "@/components/InteractiveProjects";
 import EducationSection from "@/components/EducationSection";
 import CareerRoadmap from "@/components/CareerRoadmap";
@@ -13,11 +13,11 @@ import { useEffect } from "react";
 const Index = () => {
   useEffect(() => {
     // Update document title and meta tags
-    document.title = "Umadevi Thulluru | AI & ML Engineer • Data Engineer • Software Developer";
+    document.title = "Uma Devi Thulluru | AI & ML Engineer • Data Engineer • Software Developer";
     
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', 'Computer Science Engineer passionate about crafting intelligent, data-driven systems. Expertise in ML, NLP, data engineering, cloud infrastructure, and system-level development.');
+      metaDescription.setAttribute('content', 'Computer Science Engineer passionate about crafting intelligent, data-driven systems that bridge AI, software, and creativity. Expertise in ML, NLP, data engineering, cloud infrastructure, and system-level development.');
     }
   }, []);
 
@@ -26,8 +26,8 @@ const Index = () => {
       <Navbar />
       <main className="relative">
         <FuturisticHero />
-        <HorizontalJourney />
-        <TechFlowMap />
+        <JourneyPhases />
+        <WorkflowArchitecture />
         <InteractiveProjects />
         <EducationSection />
         <CareerRoadmap />
