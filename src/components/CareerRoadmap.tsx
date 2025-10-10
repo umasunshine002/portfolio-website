@@ -39,10 +39,10 @@ const CareerRoadmap = () => {
   ];
 
   return (
-    <section id="experience" className="relative py-16 overflow-hidden">
-      {/* Background effects matching hero */}
+    <section id="experience" className="relative py-20 overflow-hidden">
+      {/* Background effects */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-gradient-to-l from-[hsl(var(--cyber-blue))] to-transparent rounded-full blur-3xl opacity-10 animate-pulse" />
+      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[hsl(var(--cyber-blue))] rounded-full blur-3xl opacity-5 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -50,13 +50,16 @@ const CareerRoadmap = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <h2 className="section-header">Experience</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">Experience</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            Professional journey across data, cloud, and software engineering
+          </p>
         </motion.div>
 
         {/* Vertical compact layout */}
-        <div className="space-y-4 max-w-4xl mx-auto">
+        <div className="space-y-6 max-w-4xl mx-auto">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
@@ -65,30 +68,27 @@ const CareerRoadmap = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.15, duration: 0.5 }}
             >
-              <div className="glass-card neon-border p-5 hover:neon-glow transition-all duration-300">
+              <Card className="glass-card neon-border p-6 hover:neon-glow transition-all duration-300">
                 <div className="flex items-start gap-4">
                   <div 
-                    className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0"
+                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ backgroundColor: `${exp.color}20` }}
                   >
-                    <Briefcase className="w-5 h-5" style={{ color: exp.color }} />
+                    <Briefcase className="w-6 h-6" style={{ color: exp.color }} />
                   </div>
                   
                   <div className="flex-grow">
-                    <h3 className="text-lg font-bold gradient-text mb-0.5">{exp.role}</h3>
-                    <p className="text-sm text-muted-foreground mb-0.5">{exp.company}</p>
-                    <div className="flex items-center gap-2 mb-2">
-                      <p className="text-xs text-muted-foreground">{exp.location}</p>
-                      <span className="text-xs text-muted-foreground">•</span>
-                      <p className="text-xs font-mono" style={{ color: exp.color }}>{exp.period}</p>
-                    </div>
+                    <h3 className="text-xl font-bold gradient-text mb-1">{exp.role}</h3>
+                    <p className="text-base text-muted-foreground mb-1">{exp.company}</p>
+                    <p className="text-sm text-muted-foreground mb-2">{exp.location}</p>
+                    <p className="text-sm font-mono mb-3" style={{ color: exp.color }}>{exp.period}</p>
                     
-                    <p className="text-xs text-muted-foreground leading-relaxed">
+                    <p className="text-sm text-muted-foreground leading-relaxed">
                       {exp.description}
                     </p>
                   </div>
                 </div>
-              </div>
+              </Card>
             </motion.div>
           ))}
         </div>

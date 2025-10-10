@@ -73,10 +73,10 @@ const InteractiveProjects = () => {
     : projects.filter(p => p.category === filter);
 
   return (
-    <section id="projects" className="relative py-16 overflow-hidden">
-      {/* Background effects matching hero */}
+    <section id="projects" className="relative py-32 overflow-hidden">
+      {/* Background effects */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute top-1/2 right-1/2 translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-gradient-to-br from-[hsl(var(--neon-glow))] via-transparent to-[hsl(var(--cyber-violet))] rounded-full blur-3xl opacity-10 animate-pulse" />
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[hsl(var(--neon-glow))] rounded-full blur-3xl opacity-10 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -84,22 +84,24 @@ const InteractiveProjects = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <h2 className="section-header">Featured Projects</h2>
+          <h2 className="section-header mb-4">Featured Projects</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            Transforming complex problems into intelligent solutions
+          </p>
 
           {/* Filter buttons */}
-          <div className="flex flex-wrap justify-center gap-2 mb-8">
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((cat) => (
               <Button
                 key={cat}
                 onClick={() => setFilter(cat)}
                 variant={filter === cat ? "default" : "outline"}
-                size="sm"
-                className={`px-4 py-1.5 text-sm font-mono transition-all duration-300 ${
+                className={`px-6 py-2 ${
                   filter === cat 
                     ? "bg-[hsl(var(--cyber-blue))] border-[hsl(var(--cyber-blue))] neon-glow" 
-                    : "border-[hsl(var(--cyber-blue))]/40 text-[hsl(var(--cyber-blue))] hover:bg-[hsl(var(--cyber-blue))]/10 hover:border-[hsl(var(--cyber-blue))]"
+                    : "border-[hsl(var(--cyber-blue))] text-[hsl(var(--cyber-blue))] hover:bg-[hsl(var(--cyber-blue))]/10"
                 }`}
               >
                 {cat}
@@ -109,35 +111,35 @@ const InteractiveProjects = () => {
         </motion.div>
 
         {/* Project Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {filteredProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.08, duration: 0.5 }}
-              whileHover={{ scale: 1.03, y: -8 }}
+              transition={{ delay: index * 0.1, duration: 0.6 }}
+              whileHover={{ scale: 1.05, y: -10 }}
               onClick={() => setSelectedProject(project)}
               className="cursor-pointer"
             >
-              <Card className="glass-card p-5 h-full neon-border hover:neon-glow transition-all duration-300">
-                <div className="text-3xl mb-3">{project.visual}</div>
-                <h3 className="text-lg font-bold gradient-text mb-2">{project.title}</h3>
-                <p className="text-xs text-muted-foreground mb-3 leading-relaxed">{project.description}</p>
+              <Card className="glass-card p-6 h-full neon-border hover:neon-glow transition-all duration-300">
+                <div className="text-4xl mb-4">{project.visual}</div>
+                <h3 className="text-xl font-bold gradient-text mb-2">{project.title}</h3>
+                <p className="text-sm text-muted-foreground mb-4">{project.description}</p>
                 
-                <div className="flex flex-wrap gap-1.5 mb-3">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tools.slice(0, 3).map((tool, i) => (
                     <span 
                       key={i}
-                      className="px-2 py-0.5 rounded text-[10px] font-medium glass-card"
+                      className="px-3 py-1 rounded-full text-xs font-medium glass-card"
                     >
                       {tool}
                     </span>
                   ))}
                   {project.tools.length > 3 && (
-                    <span className="px-2 py-0.5 rounded text-[10px] font-medium glass-card">
-                      +{project.tools.length - 3}
+                    <span className="px-3 py-1 rounded-full text-xs font-medium glass-card">
+                      +{project.tools.length - 3} more
                     </span>
                   )}
                 </div>
@@ -145,7 +147,7 @@ const InteractiveProjects = () => {
                 <Button 
                   variant="outline" 
                   size="sm"
-                  className="w-full text-xs border-[hsl(var(--cyber-blue))]/40 text-[hsl(var(--cyber-blue))] hover:bg-[hsl(var(--cyber-blue))]/10 hover:border-[hsl(var(--cyber-blue))] transition-all"
+                  className="w-full border-[hsl(var(--cyber-blue))] text-[hsl(var(--cyber-blue))] hover:bg-[hsl(var(--cyber-blue))]/10"
                 >
                   View Details
                 </Button>
@@ -156,23 +158,23 @@ const InteractiveProjects = () => {
       </div>
 
       {/* Project Modal */}
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         {selectedProject && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 0.22 }}
             onClick={() => setSelectedProject(null)}
-            className="fixed inset-0 bg-black/85 backdrop-blur-md z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
           >
             <motion.div
-              initial={{ scale: 0.92, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.92, opacity: 0, y: 20 }}
-              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.9, opacity: 0 }}
+              transition={{ duration: 0.28 }}
               onClick={(e) => e.stopPropagation()}
-              className="glass-card neon-glow rounded-2xl p-6 md:p-8 max-w-3xl w-full max-h-[90vh] overflow-y-auto relative"
+              className="glass-card neon-glow rounded-3xl p-8 max-w-4xl w-full max-h-[90vh] overflow-y-auto relative"
             >
               <Button
                 onClick={() => setSelectedProject(null)}

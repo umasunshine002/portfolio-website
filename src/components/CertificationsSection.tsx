@@ -43,10 +43,10 @@ const CertificationsSection = () => {
   ];
 
   return (
-    <section id="certifications" className="relative py-16 overflow-hidden">
-      {/* Background effects matching hero */}
+    <section id="certifications" className="relative py-32 overflow-hidden">
+      {/* Background effects */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-gradient-to-l from-[hsl(var(--cyber-blue))] to-transparent rounded-full blur-3xl opacity-10 animate-pulse" />
+      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-[hsl(var(--cyber-blue))] rounded-full blur-3xl opacity-10 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -54,12 +54,15 @@ const CertificationsSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-20"
         >
-          <h2 className="section-header">Certifications</h2>
+          <h2 className="section-header mb-4">Certifications & Achievements</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Continuous learning and professional development
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-4 max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
@@ -69,20 +72,16 @@ const CertificationsSection = () => {
               transition={{ delay: index * 0.1, duration: 0.4 }}
               whileHover={{ scale: 1.05, y: -5 }}
             >
-              <Card className="glass-card neon-border p-4 h-full hover:neon-glow transition-all duration-300">
-                <div className="flex items-center gap-3">
-                  <div 
-                    className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: `${cert.color}20` }}
-                  >
-                    <cert.icon className="w-5 h-5" style={{ color: cert.color }} />
-                  </div>
-                  
-                  <div>
-                    <h3 className="text-sm font-bold gradient-text mb-0.5">{cert.name}</h3>
-                    <p className="text-xs text-muted-foreground">{cert.issuer}</p>
-                  </div>
+              <Card className="glass-card neon-border p-6 h-full hover:neon-glow transition-all duration-300">
+                <div 
+                  className="w-12 h-12 rounded-xl mb-4 flex items-center justify-center"
+                  style={{ backgroundColor: `${cert.color}20` }}
+                >
+                  <cert.icon className="w-6 h-6" style={{ color: cert.color }} />
                 </div>
+                
+                <h3 className="text-lg font-bold gradient-text mb-2">{cert.name}</h3>
+                <p className="text-sm text-muted-foreground">{cert.issuer}</p>
               </Card>
             </motion.div>
           ))}

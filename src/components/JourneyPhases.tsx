@@ -36,10 +36,10 @@ const JourneyPhases = () => {
   ];
 
   return (
-    <section id="journey" className="relative py-16 overflow-hidden">
-      {/* Background effects matching hero */}
+    <section id="journey" className="relative py-20 overflow-hidden">
+      {/* Background effects */}
       <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-gradient-to-l from-[hsl(var(--cyber-violet))] to-transparent rounded-full blur-3xl opacity-10 animate-pulse" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[hsl(var(--cyber-violet))] rounded-full blur-3xl opacity-5 animate-pulse" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -47,12 +47,15 @@ const JourneyPhases = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          className="text-center mb-12"
         >
-          <h2 className="section-header">My Journey</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">My Journey</h2>
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+            From low-level systems to intelligent applications
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-5 max-w-5xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
           {phases.map((phase, index) => (
             <motion.div
               key={index}
@@ -62,16 +65,16 @@ const JourneyPhases = () => {
               transition={{ delay: index * 0.15, duration: 0.5 }}
               className="relative"
             >
-              <div className="glass-card neon-border p-5 rounded-xl hover:neon-glow transition-all duration-300">
+              <div className="glass-card neon-border p-6 rounded-2xl hover:neon-glow transition-all duration-300">
                 <div 
-                  className="w-12 h-12 rounded-lg mb-3 flex items-center justify-center mx-auto"
+                  className="w-14 h-14 rounded-xl mb-4 flex items-center justify-center mx-auto"
                   style={{ backgroundColor: `${phase.color}20` }}
                 >
-                  <phase.icon className="w-6 h-6" style={{ color: phase.color }} />
+                  <phase.icon className="w-7 h-7" style={{ color: phase.color }} />
                 </div>
                 
                 <h3 
-                  className="text-xl font-bold text-center mb-4"
+                  className="text-2xl font-bold text-center mb-6"
                   style={{ color: phase.color }}
                 >
                   {phase.title}
