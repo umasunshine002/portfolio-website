@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 
 const Footer = () => {
   return (
-    <footer className="relative py-6 border-t border-primary/10 overflow-hidden">
-      <div className="absolute inset-0 circuit-pattern opacity-5" />
+    <footer className="relative py-6 border-t-2 border-[hsl(var(--cyber-blue))]/30 overflow-hidden bg-black/40">
+      <div className="absolute inset-0 circuit-pattern opacity-3" />
       
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
