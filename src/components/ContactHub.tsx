@@ -13,58 +13,54 @@ const ContactHub = () => {
   };
 
   return (
-    <section id="contact" className="relative py-32 overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-r from-[hsl(var(--cyber-blue))] via-[hsl(var(--cyber-violet))] to-[hsl(var(--neon-glow))] rounded-full blur-3xl opacity-10 animate-pulse" />
-
+    <section id="contact" className="relative py-20 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center max-w-4xl mx-auto"
+          className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="section-header mb-12">Connect</h2>
+          <h2 className="text-2xl md:text-3xl font-bold mb-8 gradient-text">Connect</h2>
 
-          {/* Terminal-style contact box */}
+          {/* Classic terminal console */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="glass-card neon-border rounded-2xl overflow-hidden mb-8"
+            className="bg-black border-2 border-green-500/30 rounded-lg overflow-hidden mb-8 shadow-[0_0_30px_rgba(34,197,94,0.15)]"
           >
-            <div className="bg-[hsl(var(--card))] border-b border-[hsl(var(--cyber-blue))] px-4 py-2 flex items-center gap-2">
-              <Terminal className="w-4 h-4 text-[hsl(var(--cyber-blue))]" />
-              <span className="font-mono text-sm text-[hsl(var(--cyber-blue))]">contact.sh</span>
+            <div className="bg-green-950/30 border-b border-green-500/30 px-4 py-2 flex items-center gap-2">
+              <Terminal className="w-4 h-4 text-green-500" />
+              <span className="font-mono text-sm text-green-500">contact.sh</span>
             </div>
             
-            <div className="p-8 font-mono text-sm text-left">
-              <div className="mb-2">
-                <span className="text-[hsl(var(--neon-glow))]">$</span>
-                <span className="text-muted-foreground"> cat contact.info</span>
+            <div className="p-6 font-mono text-sm text-left bg-black">
+              <div className="mb-3">
+                <span className="text-green-500">$</span>
+                <span className="text-green-400/80"> cat contact.info</span>
               </div>
-              <div className="space-y-4 mt-4">
-                <div className="flex items-center gap-3">
-                  <Linkedin className="w-5 h-5 text-[hsl(var(--cyber-blue))]" />
+              <div className="space-y-3 mt-4">
+                <div className="flex items-center gap-3 group">
+                  <Linkedin className="w-4 h-4 text-green-500" />
                   <a 
                     href="https://www.linkedin.com/in/umadevithulluru/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    onClick={() => handleTerminalClick("Opening LinkedIn...")}
-                    className="text-[hsl(var(--cyber-blue))] hover:underline"
+                    onClick={() => handleTerminalClick("→ Opening LinkedIn...")}
+                    className="text-green-400 hover:text-green-300 transition-colors underline decoration-green-500/30 hover:decoration-green-500"
                   >
                     linkedin.com/in/umadevithulluru
                   </a>
                 </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-[hsl(var(--cyber-violet))]" />
+                <div className="flex items-center gap-3 group">
+                  <Mail className="w-4 h-4 text-green-500" />
                   <a 
                     href={`mailto:${email}`}
-                    onClick={() => handleTerminalClick("Composing email...")}
-                    className="text-[hsl(var(--cyber-violet))] hover:underline"
+                    onClick={() => handleTerminalClick("→ Composing email...")}
+                    className="text-green-400 hover:text-green-300 transition-colors underline decoration-green-500/30 hover:decoration-green-500"
                   >
                     {email}
                   </a>
@@ -74,7 +70,7 @@ const ContactHub = () => {
                 <motion.div
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="mt-4 text-[hsl(var(--neon-glow))]"
+                  className="mt-4 text-green-500"
                 >
                   {terminalText}
                   <span className="animate-pulse">_</span>
@@ -82,16 +78,6 @@ const ContactHub = () => {
               )}
             </div>
           </motion.div>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="text-sm text-muted-foreground font-mono"
-          >
-            Crafted by Uma Devi Thulluru • Always Building the Future.
-          </motion.p>
         </motion.div>
       </div>
     </section>

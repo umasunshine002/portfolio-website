@@ -21,10 +21,9 @@ const EducationSection = () => {
   ];
 
   return (
-    <section id="education" className="relative py-20 overflow-hidden">
+    <section id="education" className="relative py-16 overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[hsl(var(--neon-glow))] rounded-full blur-3xl opacity-5 animate-pulse" />
+      <div className="absolute inset-0 circuit-pattern opacity-5" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -32,36 +31,34 @@ const EducationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">Education</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Academic foundation in computer science and engineering
-          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2 gradient-text">Education</h2>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide">
           {education.map((edu, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+              className="flex-shrink-0 w-[320px]"
             >
-              <Card className="glass-card neon-border p-6 hover:neon-glow transition-all duration-300">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-xl bg-[hsl(var(--cyber-blue))]20 flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-6 h-6 text-[hsl(var(--cyber-blue))]" />
+              <Card className="bg-background/40 border-border/30 p-4 h-full hover:bg-background/60 transition-all duration-300">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <GraduationCap className="w-4 h-4 text-primary/70" />
                   </div>
                   
-                  <div className="flex-grow">
-                    <h3 className="text-xl font-bold gradient-text mb-1">{edu.degree}</h3>
-                    <p className="text-base text-muted-foreground mb-1">{edu.institution}</p>
-                    <p className="text-sm text-muted-foreground mb-2">{edu.location}</p>
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="text-sm font-mono text-[hsl(var(--cyber-blue))]">{edu.period}</span>
-                      <span className="text-sm font-mono text-[hsl(var(--neon-glow))]">GPA: {edu.gpa}</span>
+                  <div className="flex-grow min-w-0">
+                    <h3 className="text-sm font-bold text-foreground/90 mb-1 line-clamp-2">{edu.degree}</h3>
+                    <p className="text-xs text-muted-foreground mb-0.5">{edu.institution}</p>
+                    <p className="text-xs text-muted-foreground/70 mb-1">{edu.location}</p>
+                    <div className="flex flex-wrap items-center gap-2 text-xs">
+                      <span className="font-mono text-primary/70">{edu.period}</span>
+                      <span className="font-mono text-primary/60">GPA: {edu.gpa}</span>
                     </div>
                   </div>
                 </div>

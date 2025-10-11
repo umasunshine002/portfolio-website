@@ -39,10 +39,9 @@ const CareerRoadmap = () => {
   ];
 
   return (
-    <section id="experience" className="relative py-20 overflow-hidden">
+    <section id="experience" className="relative py-16 overflow-hidden">
       {/* Background effects */}
-      <div className="absolute inset-0 circuit-pattern opacity-10" />
-      <div className="absolute top-1/2 right-0 w-[500px] h-[500px] bg-[hsl(var(--cyber-blue))] rounded-full blur-3xl opacity-5 animate-pulse" />
+      <div className="absolute inset-0 circuit-pattern opacity-5" />
 
       <div className="container mx-auto px-4 relative z-10">
         <motion.div
@@ -50,40 +49,37 @@ const CareerRoadmap = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 gradient-text">Experience</h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Professional journey across data, cloud, and software engineering
-          </p>
+          <h2 className="text-2xl md:text-3xl font-bold mb-2 gradient-text">Experience</h2>
         </motion.div>
 
-        {/* Vertical compact layout */}
-        <div className="space-y-6 max-w-4xl mx-auto">
+        <div className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.5 }}
+              transition={{ delay: index * 0.1, duration: 0.4 }}
+              className="flex-shrink-0 w-[340px]"
             >
-              <Card className="glass-card neon-border p-6 hover:neon-glow transition-all duration-300">
-                <div className="flex items-start gap-4">
+              <Card className="bg-background/40 border-border/30 p-4 h-full hover:bg-background/60 transition-all duration-300">
+                <div className="flex items-start gap-3">
                   <div 
-                    className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ backgroundColor: `${exp.color}20` }}
+                    className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                    style={{ backgroundColor: `${exp.color}15` }}
                   >
-                    <Briefcase className="w-6 h-6" style={{ color: exp.color }} />
+                    <Briefcase className="w-4 h-4" style={{ color: exp.color, opacity: 0.7 }} />
                   </div>
                   
-                  <div className="flex-grow">
-                    <h3 className="text-xl font-bold gradient-text mb-1">{exp.role}</h3>
-                    <p className="text-base text-muted-foreground mb-1">{exp.company}</p>
-                    <p className="text-sm text-muted-foreground mb-2">{exp.location}</p>
-                    <p className="text-sm font-mono mb-3" style={{ color: exp.color }}>{exp.period}</p>
+                  <div className="flex-grow min-w-0">
+                    <h3 className="text-sm font-bold text-foreground/90 mb-1">{exp.role}</h3>
+                    <p className="text-xs text-muted-foreground mb-0.5">{exp.company}</p>
+                    <p className="text-xs text-muted-foreground/70 mb-1">{exp.location}</p>
+                    <p className="text-xs font-mono mb-2" style={{ color: exp.color, opacity: 0.7 }}>{exp.period}</p>
                     
-                    <p className="text-sm text-muted-foreground leading-relaxed">
+                    <p className="text-xs text-muted-foreground/80 leading-relaxed line-clamp-3">
                       {exp.description}
                     </p>
                   </div>
