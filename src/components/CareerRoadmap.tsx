@@ -49,12 +49,12 @@ const CareerRoadmap = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-2 gradient-text">Experience</h2>
         </motion.div>
 
-        <div className="flex gap-3 overflow-x-auto pb-4 px-4 scrollbar-hide">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 max-w-7xl mx-auto px-4">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
@@ -62,9 +62,8 @@ const CareerRoadmap = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="flex-shrink-0 w-[280px]"
             >
-              <Card className="bg-background/40 border-border/30 p-3 h-full hover:bg-background/60 transition-all duration-300">
+              <Card className="bg-background/40 border-border/30 p-4 h-full hover:bg-background/60 transition-all duration-300">
                 <div className="flex items-start gap-2">
                   <div 
                     className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"

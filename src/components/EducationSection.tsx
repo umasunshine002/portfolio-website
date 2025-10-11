@@ -31,12 +31,12 @@ const EducationSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          className="text-center mb-6"
         >
           <h2 className="text-2xl md:text-3xl font-bold mb-2 gradient-text">Education</h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-5xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-6xl mx-auto px-4">
           {education.map((edu, index) => (
             <motion.div
               key={index}
@@ -45,17 +45,17 @@ const EducationSection = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
             >
-              <Card className="bg-background/40 border-border/30 p-3 h-full hover:bg-background/60 transition-all duration-300">
-                <div className="flex items-start gap-2">
-                  <div className="w-7 h-7 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <GraduationCap className="w-3.5 h-3.5 text-primary/70" />
+              <Card className="bg-background/40 border-border/30 p-4 h-full hover:bg-background/60 transition-all duration-300">
+                <div className="flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <GraduationCap className="w-5 h-5 text-primary/70" />
                   </div>
                   
                   <div className="flex-grow min-w-0">
-                    <h3 className="text-xs font-bold text-foreground/90 mb-0.5 line-clamp-2">{edu.degree}</h3>
-                    <p className="text-[11px] text-muted-foreground mb-0.5">{edu.institution}</p>
-                    <p className="text-[11px] text-muted-foreground/70 mb-0.5">{edu.location}</p>
-                    <div className="flex flex-wrap items-center gap-2 text-[11px]">
+                    <h3 className="text-sm font-bold text-foreground/90 mb-1 line-clamp-2">{edu.degree}</h3>
+                    <p className="text-xs text-muted-foreground mb-0.5">{edu.institution}</p>
+                    <p className="text-xs text-muted-foreground/70 mb-1">{edu.location}</p>
+                    <div className="flex flex-wrap items-center gap-2 text-xs">
                       <span className="font-mono text-primary/70">{edu.period}</span>
                       <span className="font-mono text-primary/60">GPA: {edu.gpa}</span>
                     </div>

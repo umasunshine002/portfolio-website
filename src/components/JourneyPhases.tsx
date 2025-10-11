@@ -55,7 +55,7 @@ const JourneyPhases = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {phases.map((phase, index) => (
             <motion.div
               key={index}
@@ -65,22 +65,22 @@ const JourneyPhases = () => {
               transition={{ delay: index * 0.15, duration: 0.5 }}
               className="relative"
             >
-              <div className="glass-card neon-border p-6 rounded-2xl hover:neon-glow transition-all duration-300">
+              <div className="glass-card neon-border p-5 rounded-xl hover:neon-glow transition-all duration-300">
                 <div 
-                  className="w-14 h-14 rounded-xl mb-4 flex items-center justify-center mx-auto"
+                  className="w-12 h-12 rounded-lg mb-3 flex items-center justify-center mx-auto"
                   style={{ backgroundColor: `${phase.color}20` }}
                 >
-                  <phase.icon className="w-7 h-7" style={{ color: phase.color }} />
+                  <phase.icon className="w-6 h-6" style={{ color: phase.color }} />
                 </div>
                 
                 <h3 
-                  className="text-2xl font-bold text-center mb-6"
+                  className="text-xl font-bold text-center mb-4"
                   style={{ color: phase.color }}
                 >
                   {phase.title}
                 </h3>
                 
-                <div className="space-y-3">
+                <div className="space-y-2">
                   {phase.items.map((item, i) => (
                     <motion.div
                       key={i}
@@ -88,9 +88,9 @@ const JourneyPhases = () => {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.15 + i * 0.1 }}
-                      className="text-sm text-muted-foreground leading-relaxed flex items-start gap-2"
+                      className="text-xs text-muted-foreground leading-relaxed flex items-start gap-2"
                     >
-                      <span className="text-[10px] mt-1.5" style={{ color: phase.color }}>●</span>
+                      <span className="text-[10px] mt-0.5" style={{ color: phase.color }}>●</span>
                       <span>{item}</span>
                     </motion.div>
                   ))}

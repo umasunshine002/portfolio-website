@@ -62,7 +62,7 @@ const WorkflowArchitecture = () => {
         </motion.div>
 
         {/* Compact Grid Layout */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 max-w-6xl mx-auto">
           {techLayers.map((layer, index) => (
             <motion.div
               key={index}
@@ -72,18 +72,18 @@ const WorkflowArchitecture = () => {
               transition={{ delay: index * 0.1, duration: 0.5 }}
               className="relative"
             >
-              <div className="glass-card p-6 rounded-2xl neon-border hover:scale-[1.02] transition-all duration-300">
-                <div className="flex items-center gap-3 mb-4">
+              <div className="glass-card p-5 rounded-xl neon-border hover:scale-[1.02] transition-all duration-300">
+                <div className="flex items-center gap-2 mb-3">
                   <div 
-                    className="p-3 rounded-lg"
+                    className="p-2.5 rounded-lg"
                     style={{ backgroundColor: `${layer.color}20` }}
                   >
-                    <layer.icon className="w-6 h-6" style={{ color: layer.color }} />
+                    <layer.icon className="w-5 h-5" style={{ color: layer.color }} />
                   </div>
-                  <h3 className="text-lg font-bold gradient-text">{layer.title}</h3>
+                  <h3 className="text-sm font-bold gradient-text">{layer.title}</h3>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-1.5">
                   {layer.skills.map((skill, skillIndex) => (
                     <motion.span
                       key={skillIndex}
@@ -91,8 +91,8 @@ const WorkflowArchitecture = () => {
                       whileInView={{ opacity: 1, scale: 1 }}
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.1 + skillIndex * 0.03 }}
-                      whileHover={{ scale: 1.1, y: -2 }}
-                      className="px-3 py-1 rounded-lg text-xs font-medium glass-card cursor-pointer"
+                      whileHover={{ scale: 1.05, y: -2 }}
+                      className="px-2.5 py-1 rounded-md text-[11px] font-medium glass-card cursor-pointer"
                       style={{ 
                         borderLeft: `2px solid ${layer.color}`,
                         boxShadow: `0 0 8px ${layer.color}15`

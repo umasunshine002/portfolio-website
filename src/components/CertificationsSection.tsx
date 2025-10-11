@@ -6,7 +6,7 @@ const CertificationsSection = () => {
   const certifications = [
     {
       name: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon Web Services",
+      issuer: "Amazon Web Services (AWS)",
       icon: Shield,
       color: "hsl(var(--cyber-blue))"
     },
@@ -30,13 +30,13 @@ const CertificationsSection = () => {
     },
     {
       name: "Machine Learning Foundations",
-      issuer: "AWS (AICTE)",
+      issuer: "AWS (AICTE Academy)",
       icon: Brain,
       color: "hsl(var(--cyber-blue))"
     },
     {
       name: "Software Engineering Job Simulation",
-      issuer: "JPMorgan Chase",
+      issuer: "JPMorgan Chase & Co.",
       icon: Award,
       color: "hsl(var(--cyber-violet))"
     }
@@ -58,7 +58,7 @@ const CertificationsSection = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-2 gradient-text">Certifications</h2>
         </motion.div>
 
-        <div className="flex flex-wrap gap-2 justify-center max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-3 lg:grid-cols-6 gap-3 max-w-7xl mx-auto px-4">
           {certifications.map((cert, index) => (
             <motion.div
               key={index}
@@ -68,10 +68,13 @@ const CertificationsSection = () => {
               transition={{ delay: index * 0.05, duration: 0.3 }}
               whileHover={{ scale: 1.05 }}
             >
-              <Card className="bg-background/40 border-border/30 px-3 py-2 hover:bg-background/60 transition-all duration-300">
-                <div className="flex items-center gap-2">
-                  <cert.icon className="w-3 h-3" style={{ color: cert.color, opacity: 0.7 }} />
-                  <span className="text-xs font-medium text-foreground/80">{cert.name}</span>
+              <Card className="bg-background/40 border-border/30 p-3 hover:bg-background/60 transition-all duration-300 h-full">
+                <div className="flex flex-col items-center text-center gap-2">
+                  <cert.icon className="w-5 h-5" style={{ color: cert.color, opacity: 0.7 }} />
+                  <div>
+                    <p className="text-xs font-bold text-foreground/90 mb-1">{cert.name}</p>
+                    <p className="text-[10px] text-muted-foreground/70">{cert.issuer}</p>
+                  </div>
                 </div>
               </Card>
             </motion.div>

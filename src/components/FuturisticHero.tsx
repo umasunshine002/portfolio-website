@@ -146,36 +146,36 @@ const FuturisticHero = () => {
             Computer Science Engineer passionate about crafting intelligent, data-driven systems that bridge AI, software, and creativity.
           </motion.p>
 
-          {/* Passion Pillars */}
+          {/* Passion Pillars - Smaller */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-16"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-4 max-w-6xl mx-auto mb-16"
           >
             {[
               {
                 icon: Brain,
-                title: "AI & Machine Learning",
-                subtitle: "Turning data into understanding.",
+                title: "AI & ML",
+                subtitle: "Data to understanding",
                 color: "hsl(var(--cyber-blue))"
               },
               {
                 icon: Cpu,
-                title: "Data Engineering & Cloud Systems",
-                subtitle: "Bridging raw data to decision systems.",
+                title: "Data & Cloud",
+                subtitle: "Raw data to systems",
                 color: "hsl(var(--cyber-violet))"
               },
               {
                 icon: Terminal,
-                title: "Software Development & OS Projects",
-                subtitle: "Engineering control from the ground up.",
+                title: "Software & OS",
+                subtitle: "Ground-up engineering",
                 color: "hsl(var(--neon-glow))"
               },
               {
                 icon: Sparkles,
-                title: "Creative Tech & Automation",
-                subtitle: "Designing at the edge of intelligence.",
+                title: "Creative Tech",
+                subtitle: "Edge of intelligence",
                 color: "hsl(200 100% 50%)"
               }
             ].map((pillar, index) => (
@@ -185,16 +185,16 @@ const FuturisticHero = () => {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.9 + index * 0.1 }}
                 whileHover={{ scale: 1.05, y: -5 }}
-                className="glass-card p-6 rounded-2xl neon-border group cursor-pointer"
+                className="glass-card p-4 rounded-xl neon-border group cursor-pointer"
               >
                 <div 
-                  className="w-12 h-12 rounded-xl mb-4 flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                  className="w-10 h-10 rounded-lg mb-3 flex items-center justify-center transition-all duration-300 group-hover:scale-110 mx-auto"
                   style={{ backgroundColor: `${pillar.color}20` }}
                 >
-                  <pillar.icon className="w-6 h-6" style={{ color: pillar.color }} />
+                  <pillar.icon className="w-5 h-5" style={{ color: pillar.color }} />
                 </div>
-                <h3 className="text-lg font-bold mb-2 gradient-text">{pillar.title}</h3>
-                <p className="text-sm text-muted-foreground">{pillar.subtitle}</p>
+                <h3 className="text-sm font-bold mb-1 gradient-text text-center">{pillar.title}</h3>
+                <p className="text-xs text-muted-foreground text-center">{pillar.subtitle}</p>
               </motion.div>
             ))}
           </motion.div>
