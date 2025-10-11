@@ -54,7 +54,7 @@ const CareerRoadmap = () => {
           <h2 className="text-2xl md:text-3xl font-bold mb-2 gradient-text">Experience</h2>
         </motion.div>
 
-        <div className="flex gap-4 overflow-x-auto pb-4 px-4 scrollbar-hide">
+        <div className="flex gap-3 overflow-x-auto pb-4 px-4 scrollbar-hide">
           {experiences.map((exp, index) => (
             <motion.div
               key={index}
@@ -62,24 +62,24 @@ const CareerRoadmap = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.4 }}
-              className="flex-shrink-0 w-[340px]"
+              className="flex-shrink-0 w-[280px]"
             >
-              <Card className="bg-background/40 border-border/30 p-4 h-full hover:bg-background/60 transition-all duration-300">
-                <div className="flex items-start gap-3">
+              <Card className="bg-background/40 border-border/30 p-3 h-full hover:bg-background/60 transition-all duration-300">
+                <div className="flex items-start gap-2">
                   <div 
-                    className="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0"
+                    className="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0"
                     style={{ backgroundColor: `${exp.color}15` }}
                   >
-                    <Briefcase className="w-4 h-4" style={{ color: exp.color, opacity: 0.7 }} />
+                    <Briefcase className="w-3.5 h-3.5" style={{ color: exp.color, opacity: 0.7 }} />
                   </div>
                   
                   <div className="flex-grow min-w-0">
-                    <h3 className="text-sm font-bold text-foreground/90 mb-1">{exp.role}</h3>
-                    <p className="text-xs text-muted-foreground mb-0.5">{exp.company}</p>
-                    <p className="text-xs text-muted-foreground/70 mb-1">{exp.location}</p>
-                    <p className="text-xs font-mono mb-2" style={{ color: exp.color, opacity: 0.7 }}>{exp.period}</p>
+                    <h3 className="text-xs font-bold text-foreground/90 mb-0.5">{exp.role}</h3>
+                    <p className="text-[11px] text-muted-foreground mb-0.5">{exp.company}</p>
+                    <p className="text-[11px] text-muted-foreground/70 mb-0.5">{exp.location}</p>
+                    <p className="text-[11px] font-mono mb-1" style={{ color: exp.color, opacity: 0.7 }}>{exp.period}</p>
                     
-                    <p className="text-xs text-muted-foreground/80 leading-relaxed line-clamp-3">
+                    <p className="text-[11px] text-muted-foreground/80 leading-relaxed line-clamp-2">
                       {exp.description}
                     </p>
                   </div>
