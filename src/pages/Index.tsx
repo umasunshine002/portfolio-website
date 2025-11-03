@@ -2,13 +2,9 @@ import Navbar from "@/components/Navbar";
 import FuturisticHero from "@/components/FuturisticHero";
 import JourneyPhases from "@/components/JourneyPhases";
 import WorkflowArchitecture from "@/components/WorkflowArchitecture";
-import InteractiveProjects from "@/components/InteractiveProjects";
-import EducationSection from "@/components/EducationSection";
-import CareerRoadmap from "@/components/CareerRoadmap";
-import CertificationsSection from "@/components/CertificationsSection";
-import ContactHub from "@/components/ContactHub";
 import Footer from "@/components/Footer";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Index = () => {
   useEffect(() => {
@@ -22,20 +18,21 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1A1F2E] via-[#252B3D] to-[#1A1F2E] text-foreground overflow-x-hidden">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.5 }}
+      className="min-h-screen bg-gradient-to-b from-[#1A1F2E] via-[#252B3D] to-[#1A1F2E] text-foreground overflow-x-hidden"
+    >
       <Navbar />
       <main className="relative">
         <FuturisticHero />
-        <JourneyPhases />
         <WorkflowArchitecture />
-        <InteractiveProjects />
-        <EducationSection />
-        <CareerRoadmap />
-        <CertificationsSection />
-        <ContactHub />
+        <JourneyPhases />
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 };
 
